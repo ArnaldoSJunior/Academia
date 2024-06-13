@@ -8,7 +8,7 @@
 
        // $senha = password_hash($senha, PASSWORD_DEFAULT);
 
-        $q = "INSERT INTO usuarios(cod, usuario, nome, sobrenome, usuario, senha) VALUES (NULL, '$usuario', '$nome', '$sobrenome', '$email', '$telefone', '$senha')";
+        $q = "INSERT INTO usuarios(usuario, nome, sobrenome, usuario, senha) VALUES (NULL, '$usuario', '$nome', '$sobrenome', '$email', '$telefone', '$senha')";
 
         $resp = $banco->query($q);
 
