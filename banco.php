@@ -3,12 +3,12 @@
 
     $banco = new mysqli("localhost", "root", "", "bd_Academia");
 
-    function criarUsuario(string $nome, string $usuario, string $senha, $debug=false) : void{
+    function criarUsuario(string $usuario, string $nome, string $sobrenome, string $email, string $telefone, string $senha, $debug=false) : void{
         global $banco;
 
        // $senha = password_hash($senha, PASSWORD_DEFAULT);
 
-        $q = "INSERT INTO usuarios(cod, nome, usuario, senha) VALUES (NULL, '$nome', '$usuario', '$senha')";
+        $q = "INSERT INTO usuarios(cod, usuario, nome, sobrenome, email, telefone, senha) VALUES (NULL, '$usuario', '$nome', '$sobrenome', '$email', '$telefone', '$senha')";
 
         $resp = $banco->query($q);
 
@@ -17,7 +17,8 @@
             echo var_dump($resp);
         }
     }
-
+        // criarUsuario("yass", "Yasmim", "Sumayla", "yas@gmail.com", "41 9778-6784", "abc");
+        // criarUsuario("migas", "Miguel", "Viapiana", "migas@gmail.com", "41 7865-9877", "123");
 
     // function createOnDB($into, $values){
     //     global $banco;
@@ -70,8 +71,7 @@
 
     // }
 
-    // criarUsuario("Yasmim", "yass", "abc");
-    // criarUsuario("Miguel", "migas", "123");
+    
 
     //atualizarUsuario("maria_22", "mariaaaaaa", "", false);
 
