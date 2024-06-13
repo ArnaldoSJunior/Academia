@@ -17,7 +17,8 @@
             echo var_dump($resp);
         }
     }
-
+        // criarUsuario("yass", "Yasmim", "Sumayla", "yas@gmail.com", "41 9778-6784", "abc");
+        // criarUsuario("migas", "Miguel", "Viapiana", "migas@gmail.com", "41 7865-9877", "123");
 
     // function createOnDB($into, $values){
     //     global $banco;
@@ -70,8 +71,7 @@
 
     // }
 
-    // criarUsuario("Yasmim", "yass", "abc");
-    // criarUsuario("Miguel", "migas", "123");
+    
 
     //atualizarUsuario("maria_22", "mariaaaaaa", "", false);
 
