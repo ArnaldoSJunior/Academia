@@ -8,6 +8,20 @@
 </head>
 <body style="background-color: #032030;">
 
+<ul class="nav" style="background-color: #006DA4;" >
+  <li class="nav-item">
+    <a class="nav-link active" aria-current="page" href="index2.php">Home</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="login.php">Login</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="#">Link</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link disabled" aria-disabled="true">Disabled</a>
+  </li>
+</ul>
 
 
 

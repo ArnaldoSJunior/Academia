@@ -7,6 +7,23 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 </head>
 <body style="background-color: #032030;">
+<ul class="nav" style="background-color: #006DA4;" >
+  <li class="nav-item">
+    <a class="nav-link active" aria-current="page" href="index2.php">Home</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="login.php">Login</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="#">Link</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link disabled" aria-disabled="true">Disabled</a>
+  </li>
+</ul>
+
+
+
     <?php 
         session_start();
 
@@ -47,6 +64,8 @@
             }
         }
     ?>
+
+
     <h1 class="fs-1 fw-boldfw-bold text-white text-center mt-5">ACADEMIA PHP</h1>
     <div class="container-md position-absolute top-50 start-50 translate-middle text-white p-5 shadow-lg rounded" style="background-color: #006DA4;">
         <form action="" method="post">
