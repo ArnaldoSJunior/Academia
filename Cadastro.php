@@ -7,6 +7,11 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 </head>
 <body style="background-color: #032030;">
+
+
+
+
+
     <div  class="container-md position-absolute top-50 start-50 translate-middle text-white p-3 shadow-lg rounded" style="background-color: #006DA4;">
         <h2 style="color: #FFFFFF; text-align: center;">Cadastre-se</h2>
         <div style="display: flex; justify-content: center;">
@@ -52,30 +57,7 @@
 
  
 
-<?php 
 
-require_once "banco.php";
-
-$usuario = $_POST["Usuario"] ?? null;
-$nome = $_POST["Nome"] ?? null;
-$sobrenome = $_POST["Sobrenome"] ?? null;
-$email = $_POST["E-mail"] ?? null;
-$telefone = $_POST["Telefone"] ?? null;
-$senha = $_POST["Senha"] ?? null;
-
-
-require "bd_academia.php";
-
-if(is_null($usuario) || is_null($nome) || is_null($sobrenome) || is_null($email) || is_null($telefone)|| is_null($senha)){
-    // digitar info
-}else{
-    // criando
-    criarUsuario($usuario, $nome, $sobrenome, $email, $telefone, $senha);
-    echo "Usuario criado com sucesso!";
-}
-
-
-?>
 
 
 </body>
