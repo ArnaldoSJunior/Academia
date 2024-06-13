@@ -10,7 +10,7 @@
     <div  class="container-md position-absolute top-50 start-50 translate-middle text-white p-3 shadow-lg rounded" style="background-color: #006DA4;">
         <h2 style="color: #FFFFFF; text-align: center;">Cadastre-se</h2>
         <div style="display: flex; justify-content: center;">
-            <form>
+            <form action="" method="post">
                 <div class="row">
                     <div class="col-md-14 mb-3">
                         <input type="text" class="form-control" placeholder="Usuario" aria-label="Usuario">
@@ -33,7 +33,7 @@
                 </div>
                 <div class="row">
                     <div class="col-md-14 mb-3">
-                        <input type="password" class="form-control" placeholder="Telefone" aria-label="Telefone">
+                        <input type="text" class="form-control" placeholder="Telefone" aria-label="Telefone">
                     </div>
                 </div>
                 <div class="row">
@@ -49,5 +49,34 @@
             </form>
         </div>
     </div>
+
+ 
+
+<?php 
+
+require_once "banco.php";
+
+$usuario = $_POST["Usuario"] ?? null;
+$nome = $_POST["Nome"] ?? null;
+$sobrenome = $_POST["Sobrenome"] ?? null;
+$email = $_POST["E-mail"] ?? null;
+$telefone = $_POST["Telefone"] ?? null;
+$senha = $_POST["Senha"] ?? null;
+
+
+require "bd_academia.php";
+
+if(is_null($usuario) || is_null($nome) || is_null($sobrenome) || is_null($email) || is_null($telefone)|| is_null($senha)){
+    // digitar info
+}else{
+    // criando
+    criarUsuario($usuario, $nome, $sobrenome, $email, $telefone, $senha);
+    echo "Usuario criado com sucesso!";
+}
+
+
+?>
+
+
 </body>
 </html>

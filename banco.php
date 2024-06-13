@@ -1,14 +1,14 @@
 <pre>
 <?php 
 
-    $banco = new mysqli("localhost", "root", "", "bd_Academia");
+    $banco = new mysqli("localhost", "root", "", "bd_academia");
 
-    function criarUsuario(string $nome, string $usuario, string $senha, $debug=false) : void{
+    function criarUsuario(string $usuario, string $nome, string $sobrenome, string $email, string $telefone, string $senha, $debug=false) : void{
         global $banco;
 
        // $senha = password_hash($senha, PASSWORD_DEFAULT);
 
-        $q = "INSERT INTO usuarios(cod, nome, usuario, senha) VALUES (NULL, '$nome', '$usuario', '$senha')";
+        $q = "INSERT INTO usuarios(cod, usuario, nome, sobrenome, usuario, senha) VALUES (NULL, '$usuario', '$nome', '$sobrenome', '$email', '$telefone', '$senha')";
 
         $resp = $banco->query($q);
 
