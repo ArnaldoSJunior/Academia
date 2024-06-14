@@ -29,7 +29,7 @@
     <div class="container-sm position-absolute top-50 start-50 translate-middle text-white p-3 shadow-lg rounded" style="background-color: #006DA4;">
         <h2 style="color: #FFFFFF; text-align: center;">Cadastre-se</h2>
         <div style="display: flex; justify-content: center;">
-            <form action="" method="post">
+            <form action="bd_academia" method="post">
                 <div class="row">
                     <div class="col-md-14 mb-1 ">
                         <label for="" class="fw-bold" style="font-size: 0.8em;">Usuario</label>
@@ -65,9 +65,10 @@
                         <input type="password" class="form-control shadow" placeholder="Tamanho de 8-20 caracteres" aria-label="Senha" name="senha">
                     </div>
                 </div>
+              
                 <div class="row">
-                    <div class="col-md-12 text-center mt-3 ">
-                        <input class="btn btn-primary shadow p-3 fs-5 fw-bold" type="submit" value="Cadastrar" style="background-color: #004D74;">
+                    <div class="col-md-12 text-center mt-3">
+                        <input class="btn btn-primary shadow" type="submit" value="Cadastrar" style="background-color: #004D74;">
                     </div>
                 </div>
             </form>
