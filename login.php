@@ -50,10 +50,6 @@
             echo "<h1> Usuário não existe</h1>";
         } else {
             $obj = $busca->fetch_object();
-            echo "<br>" . $obj->cod;
-            echo "<br>" . $obj->usuario;
-            echo "<br>" . $obj->nome;
-            echo "<br>" . $obj->senha;
 
             if ($sen === $obj->senha) {
                 $_SESSION["usuario"] = $usu;

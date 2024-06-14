@@ -33,36 +33,36 @@
                 <div class="row">
                     <div class="col-md-14 mb-1 ">
                         <label for="" class="fw-bold" style="font-size: 0.8em;">Usuario</label>
-                        <input type="text" class="form-control shadow" placeholder="" aria-label="Usuario">
+                        <input type="text" class="form-control shadow" placeholder="" aria-label="Usuario" name="usuario">
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-md-14 mb-1 ">
                         <label for="" class="fw-bold" style="font-size: 0.8em;">Nome</label>
-                        <input type="text" class="form-control shadow" placeholder="" aria-label="Nome">
+                        <input type="text" class="form-control shadow" placeholder="" aria-label="Nome" name="nome">
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-md-14 mb-1">
                         <label for="" class="fw-bold" style="font-size: 0.8em;">Sobrenome</label>
-                        <input type="text" class="form-control shadow" placeholder="" aria-label="Sobrenome">
+                        <input type="text" class="form-control shadow" placeholder="" aria-label="Sobrenome" name="sobrenome">
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-md-14 mb-1">
                         <label for="" class="fw-bold" style="font-size: 0.8em;">E-mail</label>
-                        <input type="text" class="form-control shadow" placeholder="exemplo@gmail.com" aria-label="E-mail">
+                        <input type="text" class="form-control shadow" placeholder="exemplo@gmail.com" aria-label="E-mail" name="email">
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-md-14 mb-1">
                         <label for="" class="fw-bold" style="font-size: 0.8em;">Telefone</label>
-                        <input type="text" class="form-control shadow" placeholder="(XX) XXXX-XXXX" aria-label="Telefone">
+                        <input type="text" class="form-control shadow" placeholder="(XX) XXXX-XXXX" aria-label="Telefone" name="telefone">
                 </div>
                 <div class="row">
                     <div class="col-md-14 mb-1">
                         <label for="" class="fw-bold" style="font-size: 0.8em;">Senha</label>
-                        <input type="password" class="form-control shadow" placeholder="Tamanho de 8-20 caracteres" aria-label="Senha">
+                        <input type="password" class="form-control shadow" placeholder="Tamanho de 8-20 caracteres" aria-label="Senha" name="senha">
                     </div>
                 </div>
                 <div class="row">
@@ -73,7 +73,36 @@
             </form>
         </div>
     </div>
+    <?php
 
+        require_once "banco.php";
+
+        $usu = $_POST["usuario"] ?? null;
+        $nome = $_POST['nome'] ?? null;
+        $sobrenome = $_POST['sobrenome'] ?? null;
+        $email = $_POST["email"] ?? null;
+        $telefone = $_POST["telefone"] ?? null;
+        $sen = $_POST['senha'] ?? null;
+
+        if (is_null($usu) || is_null($nome) || is_null($sobrenome) || is_null($email) || is_null($telefone) || is_null($sen)) {
+
+        }else{
+            $busca = $banco->query("SELECT * FROM usuarios WHERE email='$email'");
+
+            if ($busca->num_rows == 0) {
+                $obj = $busca->fetch_object();
+                criarUsuario($usu, $nome, $sobrenome, $email, $telefone, $sen);
+                echo "<script>alert('Cadastro efetuado com sucesso!!');</script>";
+                header("Location: login.php"); 
+                
+            }else{
+                echo "<script>alert('Email já cadastrado!!');</script>";
+            }
+        }
+
+
+
+    ?>
 
 
 

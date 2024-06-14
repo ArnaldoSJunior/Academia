@@ -8,7 +8,7 @@
 
        // $senha = password_hash($senha, PASSWORD_DEFAULT);
 
-        $q = "INSERT INTO usuarios(cod, usuario, nome, sobrenome, usuario, senha) VALUES (NULL, '$usuario', '$nome', '$sobrenome', '$email', '$telefone', '$senha')";
+        $q = "INSERT INTO usuarios(cod, usuario, nome, sobrenome, email, telefone, senha) VALUES (NULL, '$usuario', '$nome', '$sobrenome', '$email', '$telefone', '$senha')";
 
         $resp = $banco->query($q);
 
@@ -18,7 +18,7 @@
         }
     }
         // criarUsuario("yass", "Yasmim", "Sumayla", "yas@gmail.com", "41 9778-6784", "abc");
-        // criarUsuario("migas", "Miguel", "Viapiana", "migas@gmail.com", "41 7865-9877", "123");
+         //criarUsuario("migas", "Miguel", "Viapiana", "migas@gmail.com", "41 7865-9877", "123");
 
     // function createOnDB($into, $values){
     //     global $banco;
