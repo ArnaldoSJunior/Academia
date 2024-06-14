@@ -17,7 +17,7 @@
             <a class="nav-link btn btn-outline-primary" style="color: white;" href="login.php">Login</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link btn btn-outline-primary" style="color: white;" href="#">Link</a>
+            <a class="nav-link btn btn-outline-primary" style="color: white;" href="Cadastro.php">Cadastre-se</a>
         </li>
         <li class="nav-item">
             <a class="nav-link btn btn-outline-primary" style="color: white;" aria-disabled="true">Disabled</a>
