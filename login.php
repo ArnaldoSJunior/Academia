@@ -11,7 +11,7 @@
 <body style="background-color: #032030;">
     <ul class="nav" style="background-color: #003554;">
         <li class="nav-item">
-            <a class="nav-link btn btn-outline-primary" style="color: white;" aria-current="page" href="index2.php">Home</a>
+            <a class="nav-link btn btn-outline-primary shadow" style="color: white;" aria-current="page" href="index2.php">Home</a>
         </li>
         <li class="nav-item">
             <a class="nav-link btn btn-outline-primary" style="color: white;" href="Cadastro.php">Cadastro</a>
