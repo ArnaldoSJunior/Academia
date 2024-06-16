@@ -13,13 +13,13 @@
 
     <ul class="nav pb-0" style="background-color: #003554;">
         <li class="nav-item">
-            <a class="nav-link btn btn-outline-primary" style="color: white;" aria-current="page" href="index2.php">Home</a>
+            <a class=" btn btn-outline-primary mx-1"  aria-current="page" href="index2.php">Home</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link btn btn-outline-primary" style="color: white;" href="login.php">Login</a>
+            <a class=" btn btn-outline-primary mx-1"  href="login.php">Login</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link btn btn-outline-primary disable" style="color: white;" aria-disabled="true">Disabled</a>
+            <a class=" btn btn-outline-primary disable mx-1"  aria-disabled="true">Disabled</a>
         </li>
     </ul>
 

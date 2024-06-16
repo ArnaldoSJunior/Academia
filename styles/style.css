@@ -52,7 +52,7 @@ nav a {
     background-attachment: fixed;
     text-align: center;
     padding: 100px 20px;
-    box-shadow: inset 6px 8px 15px 4px rgba(0, 0, 0, 0.534);
+    box-shadow: inset 6px 8px 20px 4px rgba(0, 0, 0, 0.534);
     /* filter: brightness(0.25) opacity(0.75); */
 
 
@@ -95,7 +95,7 @@ nav a {
     padding: 50px 0;
     background-color: #022B42;
     text-align: center;
-    box-shadow: 0px -8px 15px 4px rgba(0, 0, 0, 0.534);
+    box-shadow: 0px -8px 20px 4px rgba(0, 0, 0, 0.534);
     
 }
 
