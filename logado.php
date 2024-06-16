@@ -16,10 +16,13 @@
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item">
-                    <a class="nav-link" href="#criar">Criar Planilha</a>
+                    <a class="btn btn-outline-primary mx-1" href="#criar">Criar Planilha</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#pegar">Pegar Planilha Pronta</a>
+                    <a class="btn btn-outline-primary mx-1" href="#pegar">Pegar Planilha Pronta</a>
+                </li>
+                <li class="nav-item">
+                    <a class="btn btn-outline-primary mx-1" href="logout.php">Logout</a>
                 </li>
             </ul>
         </div>
@@ -29,6 +32,36 @@
         <h1 class="display-4">Bem-vindo ao Seu Treino Personalizado</h1>
         <p class="lead">Crie sua própria planilha de treino ou escolha uma pronta para começar!</p>
     </header>
+
+    <?php
+
+        session_start();
+
+        $nomePlanilha = $_SESSION['nomePlanilha'] ?? null;
+        $descricao = $_SESSION['descricao'] ?? null;
+
+        require_once "banco.php";
+
+        $nomePlanilha = $_POST['nomePlanilha'] ?? null;
+        $descricao = $_POST['descricao'] ?? null;
+
+
+        if (is_null($nomePlanilha) && is_null($descricao)) {
+            
+        }else{
+
+            $busca = $banco->query("SELECT * FROM planilha_personalizada WHERE nome_planilha='$nomePlanilha'");
+
+            if($busca ->num_rows ==0){
+                $_SESSION['nomePlanilha'] = $nomePlanilha;
+                $_SESSION['descricao'] = $descricao;
+                header("Location: planilhaPersonalizada.php");
+            }else{
+                echo "<script>alert('Nome de planilha já existe, por favor deigite outro nome');</script>";
+            }
+        }
+
+    ?>
 
     <section id="criar" class="container mt-5">
         <h2 class="text-center">Criar Planilha de Treino</h2>
@@ -44,36 +77,6 @@
             <button type="submit" class="btn btn-primary">Criar Planilha</button>
         </form>
     </section>
-
-    <?php
-
-        session_start();
-
-        $nomePlanilha = $_SESSION['nomePlanilha'] ?? null;
-        $descricao = $_SESSION['descricao'] ?? null;
-
-        require_once "banco.php";
-
-        $nomePlanilha = $_POST['nomePlanilha'] ?? null;
-        $descricao = $_POST['descricao'] ?? null;
-
-
-        if (is_null($nomePlanilha) || is_null($descricao)) {
-            
-        }else{
-
-            $busca = $banco->query("SELECT * FROM planilha_personalizada WHERE nome_planilha='$nomePlanilha'");
-
-            if($busca ->num_rows ==0){
-                echo "<script>alert('Nome de planilha já existe, por favor deigite outro nome');</script>";
-            }else{
-                $_SESSION['nome_planilha'] = $nomePlanilha;
-                $_SESSION['descricao'] = $descricao;
-                header("Location: planilhaPersonalizada.php");
-            }
-        }
-
-    ?>
 
     <section id="pegar" class="container mt-5">
         <h2 class="text-center">Pegar Planilha Pronta</h2>

@@ -13,7 +13,7 @@
 
     <ul class="nav pb-0" style="background-color: #003554;">
         <li class="nav-item">
-            <a class=" btn btn-outline-primary mx-1"  aria-current="page" href="index2.php">Home</a>
+            <a class=" btn btn-outline-primary mx-1"  aria-current="page" href="index.php">Home</a>
         </li>
         <li class="nav-item">
             <a class=" btn btn-outline-primary mx-1"  href="login.php">Login</a>
