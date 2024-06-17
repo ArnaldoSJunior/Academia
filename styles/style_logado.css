@@ -32,3 +32,18 @@ body {
 footer {
     background-color: #003554;
 }
+.treinos{
+    display: flex;
+    flex-direction: row;
+ 
+    
+}
+.nometreino{
+    display: flex;  
+    flex-direction: row; 
+  
+    
+}
+h6{
+    margin-bottom: 0;
+}

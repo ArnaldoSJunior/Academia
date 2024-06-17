@@ -34,8 +34,8 @@
     </nav>
 
     <header class="jumbotron text-center bg-primary text-white">
-        <h1 class="display-4">Bem-vindo ao Seu Treino Personalizado</h1>
-        <p class="lead">Crie sua própria planilha de treino ou escolha uma pronta para começar!</p>
+        <h1 class="display-4">Bem-vindo aos Treinos </h1>
+        <p class="lead">Personalise seu próprio treino ou escolha um pronto para começar!</p>
     </header>
 
     <?php
@@ -68,22 +68,234 @@
     ?>
 
     <section id="criar" class="container mt-5">
-        <h2 class="text-center">Criar Planilha de Treino</h2>
+        <h2 class="text-center">Treino personalizado</h2>
         <form method="post">
-            <div class="form-group">
-                <label for="nome">Nome do Treino</label>
-                <input type="text" class="form-control" id="nome" placeholder="Digite o nome do seu treino" name="nomePlanilha" required>
-            </div>
-            <div class="form-group">
-                <label for="descricao">Descrição</label>
-                <textarea class="form-control" id="descricao" rows="3" placeholder="Descrição do treino" name="descricao"></textarea>
-            </div>
-            <button type="submit" class="btn btn-primary">Criar Planilha/ Adicionar Exercicio</button>
-        </form>
-    </section>
+
+
+
+
+    <div>
+        <h4>Cardio</h4>
+         <select name="treino" id="treino" class="form-select form-select-lg mb-3" aria-label="Large select example">
+             <option value="esteira">Esteira</option>
+             <option value="bicicleta">Bicicleta</option>
+             <option value="valor_da_opção3"></option>
+             <option value="valor_da_opção1"></option>
+             <option value="valor_da_opção2"></option>
+             <option value="valor_da_opção3"></option>
+        </select>
+        <select name="serie" id="treino" class="form-select form-select-lg mb-3" aria-label="Large select example">
+             <option value="valor_da_opção3">Tempo</option>
+             <option value="valor_da_opção3">10 min</option>
+             <option value="valor_da_opção3">15 min</option>
+             <option value="valor_da_opção3">20 min</option>
+             <option value="valor_da_opção3">25 min</option>
+             <option value="valor_da_opção3">30 min</option>
+        </select>
+        <button>Inserir</button>
+    </div>
+    <div class="treinos">
+    <h4>Peito</h4>
+         <select name="peito" id="treino" class="form-select form-select-lg mb-3" aria-label="Large select example">
+             <option value="valor_da_opção1">Exercício</option>
+             <option value="valor_da_opção1">supino reto</option>
+             <option value="valor_da_opção3">Supino inclinado barra</option>
+             <option value="valor_da_opção3">Supino declinado barra</option>
+             <option value="valor_da_opção1">cruxifixo reto</option>
+             <option value="valor_da_opção2">voador</option>
+             <option value="valor_da_opção3">Flexão de braços</option>
+        </select>
+        
+        <select name="serie" id="treino" class="form-select form-select-lg mb-3" aria-label="Large select example">
+             <option value="serie">Séries</option>
+             <option value="peitop1">1</option>
+             <option value="peitop2">2</option>
+             <option value="peitop3">3</option>
+             <option value="peitop4">4</option>
+             <option value="peitop5">5</option>
+        </select>
+        <h6>X</h6>
+        <select name="repeticoes" id="treino" class="form-select form-select-lg mb-3" aria-label="Large select example">
+             <option value="repeticao">Repeticoes</option>
+             <option value="peitop6">10</option>
+             <option value="peitop7">12</option>
+             <option value="peitop8">15</option>
+        </select>
+        <button>Inserir</button>
+    </div>
+
+
+   
+
+    <div class="treinos" >
+        <h4>Costas</h4>
+         <select name="treino" id="treino" class="form-select form-select-lg mb-3" aria-label="Large select example">
+             <option value="valor_da_opção1">Exercício</option>
+             <option value="valor_da_opção1">supino reto</option>
+             <option value="valor_da_opção2">remada fechada</option>
+             <option value="valor_da_opção3">puxada neutra</option>
+             <option value="valor_da_opção1"></option>
+             <option value="valor_da_opção2"></option>
+             <option value="valor_da_opção3"></option>
+        </select>
+        <select name="serie" id="treino" class="form-select form-select-lg mb-3" aria-label="Large select example">
+             <option value="valor_da_opção3">Séries</option>
+             <option value="valor_da_opção3">1</option>
+             <option value="valor_da_opção3">2</option>
+             <option value="valor_da_opção3">3</option>
+             <option value="valor_da_opção3">4</option>
+             <option value="valor_da_opção3">5</option>
+        </select>
+        <h6>X</h6>
+        <select name="repeticoes" id="treino" class="form-select form-select-lg mb-3" aria-label="Large select example">
+             <option value="valor_da_opção3">Repeticoes</option>
+             <option value="valor_da_opção3">10</option>
+             <option value="valor_da_opção3">12</option>
+             <option value="valor_da_opção3">15</option>
+        </select>
+        <button>Inserir</button>
+    </div>
+    <div class="treinos">
+        <h4>Ombros</h4>
+         <select name="treino" id="treino" class="form-select form-select-lg mb-3" aria-label="Large select example">
+             <option value="valor_da_opção1">Exercício</option>
+             <option value="valor_da_opção1">supino reto</option>
+             <option value="valor_da_opção2">remada fechada</option>
+             <option value="valor_da_opção3">puxada neutra</option>
+             <option value="valor_da_opção1"></option>
+             <option value="valor_da_opção2"></option>
+             <option value="valor_da_opção3"></option>
+        </select>
+        <select name="serie" id="treino" class="form-select form-select-lg mb-3" aria-label="Large select example">
+             <option value="valor_da_opção3">Séries</option>
+             <option value="valor_da_opção3">1</option>
+             <option value="valor_da_opção3">2</option>
+             <option value="valor_da_opção3">3</option>
+             <option value="valor_da_opção3">4</option>
+             <option value="valor_da_opção3">5</option>
+        </select>
+        <h6>X</h6>
+        <select name="repeticoes" id="treino" class="form-select form-select-lg mb-3" aria-label="Large select example">
+             <option value="valor_da_opção3">Repeticoes</option>
+             <option value="valor_da_opção3">10</option>
+             <option value="valor_da_opção3">12</option>
+             <option value="valor_da_opção3">15</option>
+        </select>
+        <button>Inserir</button>
+    </div>
+    <div class="treinos">
+        <h4>Tríceps</h4>
+         <select name="treino" id="treino" class="form-select form-select-lg mb-3" aria-label="Large select example">
+             <option value="valor_da_opção1">Exercício</option>
+             <option value="valor_da_opção1">supino reto</option>
+             <option value="valor_da_opção2">remada fechada</option>
+             <option value="valor_da_opção3">puxada neutra</option>
+             <option value="valor_da_opção1"></option>
+             <option value="valor_da_opção2"></option>
+             <option value="valor_da_opção3"></option>
+        </select>
+        <select name="serie" id="treino" class="form-select form-select-lg mb-3" aria-label="Large select example">
+             <option value="valor_da_opção3">Séries</option>
+             <option value="valor_da_opção3">1</option>
+             <option value="valor_da_opção3">2</option>
+             <option value="valor_da_opção3">3</option>
+             <option value="valor_da_opção3">4</option>
+             <option value="valor_da_opção3">5</option>
+        </select>
+        <h6>X</h6>
+        <select name="repeticoes" id="treino" class="form-select form-select-lg mb-3" aria-label="Large select example">
+             <option value="valor_da_opção3">Repeticoes</option>
+             <option value="valor_da_opção3">10</option>
+             <option value="valor_da_opção3">12</option>
+             <option value="valor_da_opção3">15</option>
+        </select>
+        <button>Inserir</button>
+    </div>
+    <div class="treinos">
+        <h4>Pernas</h4>
+         <select name="treino" id="treino" class="form-select form-select-lg mb-3" aria-label="Large select example">
+             <option value="valor_da_opção1">Exercício</option>
+             <option value="valor_da_opção1">Leg press 45º</option>
+             <option value="valor_da_opção2">Cadeira extensora</option>
+             <option value="valor_da_opção3">Cadeira flexora</option>
+             <option value="valor_da_opção1">Flexora</option>
+             <option value="valor_da_opção2">Extensora</option>
+             <option value="valor_da_opção3">Afundo com barra</option>
+        </select>
+        <select name="serie" id="treino" class="form-select form-select-lg mb-3" aria-label="Large select example">
+             <option value="valor_da_opção3">Séries</option>
+             <option value="valor_da_opção3">1</option>
+             <option value="valor_da_opção3">2</option>
+             <option value="valor_da_opção3">3</option>
+             <option value="valor_da_opção3">4</option>
+             <option value="valor_da_opção3">5</option>
+        </select>
+        <h6>X</h6>
+        <select name="repeticoes" id="treino" class="form-select form-select-lg mb-3" aria-label="Large select example">
+             <option value="valor_da_opção3">Repeticoes</option>
+             <option value="valor_da_opção3">10</option>
+             <option value="valor_da_opção3">12</option>
+             <option value="valor_da_opção3">15</option>
+        </select>
+        <button>Inserir</button>
+    </div>
+
+    <div class="treinos">
+        <h4>Abdômen</h4>
+         <select name="treino" id="treino" class="form-select form-select-lg mb-3" aria-label="Large select example">
+             <option value="exericicio">Exercício</option>
+             <option value="op1">supino reto</option>
+             <option value="op2">Infra solo</option>
+             <option value="op3"></option>
+             <option value="op4">Prancha</option>
+             <option value="op5"></option>
+             <option value="op3"></option>
+        </select>
+        <select name="serie" id="treino" class="form-select form-select-lg mb-3" aria-label="Large select example">
+             <option value="serie">Séries</option>
+             <option value="valor_da_opção3">1</option>
+             <option value="valor_da_opção3">2</option>
+             <option value="valor_da_opção3">3</option>
+             <option value="valor_da_opção3">4</option>
+             <option value="valor_da_opção3">5</option>
+        </select>
+        <h6>X</h6>
+        <select name="repeticoes" id="treino" class="form-select form-select-lg mb-3" aria-label="Large select example">
+             <option value="valor_da_opção3">Repeticoes</option>
+             <option value="valor_da_opção3">10</option>
+             <option value="valor_da_opção3">12</option>
+             <option value="valor_da_opção3">15</option>
+        </select>
+        <button type= "button" class="btn btn-primary" style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .10rem; --bs-btn-font-size: .75rem;">Inserir</button>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     <section id="pegar" class="container mt-5">
-        <h2 class="text-center">Pegar Planilha Pronta</h2>
+        <h2 class="text-center">Treinos prontos</h2>
         <div class="row">
             <div class="col-md-4">
                 <div class="card mb-4">

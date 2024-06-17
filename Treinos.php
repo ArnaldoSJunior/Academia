@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
-    <title>Planilha Personalizada</title>
+    <title>Treinos</title>
     <link rel="stylesheet" href="styles/style_planilhaP.css">
 </head>
 
@@ -13,7 +13,7 @@
     <header>
         <nav class="navbar navbar-expand-lg navbar-dark shadow">
             <div class="text-left text-white p-3">
-                <h1>Planilha Personalizada</h1>
+                <h1>Treinos</h1>
             </div>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ml-auto">
@@ -89,7 +89,7 @@
                     <p aria-label="First name" class="form-control"><?= htmlspecialchars($nomePlanilha) ?></p>
                 </div>
                 <div class="input-group my-2">
-                    <span class="label input-group-text">Nome do exercício</span>
+                    <span class="label input-group-text">Exercício</span>
                     <input type="text" aria-label="First name" class="form-control" name="nomeExercicio" required>
                 </div>
                 <div class="input-group my-2">
@@ -97,9 +97,9 @@
                     <input type="number" aria-label="First name" class="form-control" name="peso" required>
                 </div>
                 <div class="input-group my-2">
-                    <span class="label input-group-text">nº de séries</span>
+                    <span class="label input-group-text">Séries</span>
                     <input type="number" aria-label="First name" class="form-control" name="series" required>
-                    <span class="label input-group-text">nº de repetições</span>
+                    <span class="label input-group-text">Repetições</span>
                     <input type="number" aria-label="Last name" class="form-control" name="repeticoes" required>
                 </div>
                 <div class="input-gruop my-2 mt-3 text-center">
