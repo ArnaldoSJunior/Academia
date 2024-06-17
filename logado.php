@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,14 +8,18 @@
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="styles/style_logado.css">
 </head>
+
 <body>
-    <nav class="navbar navbar-expand-lg navbar-dark" >
-        <a class="navbar-brand " href="#" >Planilha de Treino</a>
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <a class="navbar-brand " href="#">Planilha de Treino</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="btn btn-outline-primary mx-1" href="mostrarPlanilhas.php  ">Mostrar Planilhas</a>
+                </li>
                 <li class="nav-item">
                     <a class="btn btn-outline-primary mx-1" href="#criar">Criar Planilha</a>
                 </li>
@@ -35,31 +40,30 @@
 
     <?php
 
-        session_start();
+    session_start();
 
-        $nomePlanilha = $_SESSION['nomePlanilha'] ?? null;
-        $descricao = $_SESSION['descricao'] ?? null;
+    $nomePlanilha = $_SESSION['nomePlanilha'] ?? null;
+    $descricao = $_SESSION['descricao'] ?? null;
 
-        require_once "banco.php";
+    require_once "banco.php";
 
-        $nomePlanilha = $_POST['nomePlanilha'] ?? null;
-        $descricao = $_POST['descricao'] ?? null;
+    $nomePlanilha = $_POST['nomePlanilha'] ?? null;
+    $descricao = $_POST['descricao'] ?? null;
 
 
-        if (is_null($nomePlanilha) && is_null($descricao)) {
-            
-        }else{
+    if (is_null($nomePlanilha) && is_null($descricao)) {
+    } else {
 
-            $busca = $banco->query("SELECT * FROM planilha_personalizada WHERE nome_planilha='$nomePlanilha'");
+        $busca = $banco->query("SELECT * FROM planilha_personalizada WHERE nome_planilha='$nomePlanilha'");
 
-            if($busca ->num_rows ==0){
-                $_SESSION['nomePlanilha'] = $nomePlanilha;
-                $_SESSION['descricao'] = $descricao;
-                header("Location: planilhaPersonalizada.php");
-            }else{
-                echo "<script>alert('Nome de planilha já existe, por favor deigite outro nome');</script>";
-            }
+        if ($busca->num_rows == 0) {
+            $_SESSION['nomePlanilha'] = $nomePlanilha;
+            $_SESSION['descricao'] = $descricao;
+            header("Location: planilhaPersonalizada.php");
+        } else {
+            echo "<script>alert('Nome de planilha já existe, por favor deigite outro nome');</script>";
         }
+    }
 
     ?>
 
@@ -119,4 +123,5 @@
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
+
 </html>
