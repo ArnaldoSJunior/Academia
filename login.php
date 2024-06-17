@@ -11,10 +11,10 @@
 <body style="background-color: #032030;">
     <ul class="nav" style="background-color: #003554;">
         <li class="nav-item">
-            <a class="nav-link btn btn-outline-primary" style="color: white;" aria-current="page" href="index2.php">Home</a>
+            <a class=" btn btn-outline-primary shadow mx-1" aria-current="page" href="index.php">Home</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link btn btn-outline-primary" style="color: white;" href="login.php">Login</a>
+            <a class=" btn btn-outline-primary mx-1"  href="Cadastro.php">Cadastro</a>
         </li>
         <li class="nav-item">
             <a class="nav-link btn btn-outline-primary" style="color: white;" href="Cadastro.php">Cadastre-se</a>
