@@ -73,7 +73,7 @@
                                 echo '<td>' . $detalhes['series'] . '</td>';
                                 echo '<td>' . $detalhes['repeticoes'] . '</td>';
                                 echo '<td>';
-                                echo    '<a href="excluirExercicio.php?id=' . $exercicioCod . '" class="btn btn-danger btn-sm">Excluir</a>';
+                                echo    '<a href="excluirExercicio.php?id=' . $exercicioCod . '" class="btn btn-primary btn-sm">Excluir</a>';
                                 echo '</td>';
                                 echo '</tr>';
                             }

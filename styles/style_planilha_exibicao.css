@@ -64,13 +64,13 @@ header {
 }
 
 .btn-danger {
-    background-color: #a40000;
-    border-color: #a40000;
+    background-color: #006494;
+    border-color: #006494;
 }
 
 .btn-danger:hover {
-    background-color: #740000;
-    border-color: #740000;
+    background-color: #004D74;
+    border-color: #004D74;
 }
 
 td{

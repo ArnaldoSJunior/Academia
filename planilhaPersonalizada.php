@@ -110,68 +110,64 @@
     </div>
 
     <?php
-    $nomeExercicio = $_POST['nomeExercicio'] ?? null;
-    $peso = $_POST['peso'] ?? null;
-    $series = $_POST['series'] ?? null;
-    $repeticoes = $_POST['repeticoes'] ?? null;
+$nomeExercicio = $_POST['nomeExercicio'] ?? null;
+$peso = $_POST['peso'] ?? null;
+$series = $_POST['series'] ?? null;
+$repeticoes = $_POST['repeticoes'] ?? null;
 
-    if (is_null($nomeExercicio) || is_null($peso) || is_null($series) || is_null($repeticoes)) {
-        echo "Todos os campos são obrigatórios.";
-    } else {
-        try {
-            // Tabela do usuário
-            $tabela = "planilha_" . $banco->real_escape_string($usu);
+if (is_null($nomeExercicio) || is_null($peso) || is_null($series) || is_null($repeticoes)) {
+    echo "Todos os campos são obrigatórios.";
+} else {
+    try {
+        // Tabela do usuário
+        $tabela = "planilha_" . $banco->real_escape_string($usu);
 
-            // Verificar se o exercício já existe
-            $stmt = $banco->prepare("SELECT cod FROM exercicios WHERE nome = '$nomeExercicio' AND peso = $peso AND series = $series AND repeticoes = $repeticoes");
-            // $stmt->bind_param("", $nomeExercicio, $peso, $series, $repeticoes);
+        // Verificar se o exercício já existe
+        $stmt = $banco->prepare("SELECT cod FROM exercicios WHERE nome = ? AND peso = ? AND series = ? AND repeticoes = ?");
+        $stmt->bind_param("siii", $nomeExercicio, $peso, $series, $repeticoes);
+        $stmt->execute();
+        $result = $stmt->get_result();
+
+        if ($result->num_rows == 0) {
+            // Inserir exercício na tabela 'exercicios' se não existir
+            $stmt = $banco->prepare("INSERT INTO exercicios (nome, peso, series, repeticoes) VALUES (?, ?, ?, ?)");
+            $stmt->bind_param("siii", $nomeExercicio, $peso, $series, $repeticoes);
             $stmt->execute();
-            $result = $stmt->get_result();
-
-            if ($result->num_rows == 0) {
-                // Inserir exercício na tabela 'exercicios'
-                $stmt = $banco->prepare("INSERT INTO exercicios (nome, peso, series, repeticoes) VALUES ('$nomeExercicio', $peso, $series, $repeticoes)");
-
-                if ($stmt->execute()) {
-                    $codExercicio = $stmt->insert_id; // Obtém o ID do exercício inserido
-
-                    for ($i = 0; $i < 10; $i++) {
-                        $colunaExercicio = "exercicio$i";
-
-                        // Verificar se a coluna já existe
-                        $result = $banco->query("SHOW COLUMNS FROM $tabela LIKE '$colunaExercicio'");
-                        if ($result->num_rows == 0) {
-                            // Adicionar coluna e chave estrangeira se não existir
-                            $busca = $banco->query("SELECT * FROM $tabela WHERE nome_planilha = '$nomePlanilha'");
-                            if ($busca->num_rows == 0) {
-                            } else {
-                                $banco->query("ALTER TABLE $tabela ADD $colunaExercicio INT");
-                                $banco->query("ALTER TABLE $tabela ADD FOREIGN KEY ($colunaExercicio) REFERENCES exercicios(cod)");
-                            }
-                        }
-
-                        // Inserir o exercício na coluna correspondente
-                        $busca = $banco->query("SELECT * FROM $tabela WHERE $colunaExercicio IS NULL AND nome_planilha = '$nomePlanilha'");
-                        if ($busca->num_rows > 0) {
-                            $banco->query("UPDATE $tabela SET $colunaExercicio = $codExercicio WHERE $colunaExercicio IS NULL LIMIT 1");
-                            echo "<script>alert('Exercício adicionado com sucesso!');</script>";
-                            return;
-                        }
-                    }
-                } else {
-                    throw new Exception("Erro ao adicionar o exercício: " . $stmt->error);
-                }
-            } else {
-                echo "<script>alert('Exercício já existe!');</script>";
-            }
-            $stmt->close();
-        } catch (mysqli_sql_exception $e) {
-            echo "Erro de SQL: " . $e->getMessage();
-        } catch (Exception $e) {
-            echo "Erro: " . $e->getMessage();
+            $codExercicio = $stmt->insert_id; // Obtém o ID do exercício inserido
+        } else {
+            $row = $result->fetch_assoc();
+            $codExercicio = $row['cod'];
         }
+
+        // Adicionar exercício na planilha do usuário
+        for ($i = 0; $i < 10; $i++) {
+            $colunaExercicio = "exercicio$i";
+
+            // Verificar se a coluna já existe
+            $result = $banco->query("SHOW COLUMNS FROM $tabela LIKE '$colunaExercicio'");
+            if ($result->num_rows == 0) {
+                // Adicionar coluna e chave estrangeira se não existir
+                $banco->query("ALTER TABLE $tabela ADD $colunaExercicio INT");
+                $banco->query("ALTER TABLE $tabela ADD FOREIGN KEY ($colunaExercicio) REFERENCES exercicios(cod)");
+            }
+
+            // Inserir o exercício na coluna correspondente
+            $busca = $banco->query("SELECT * FROM $tabela WHERE $colunaExercicio IS NULL AND nome_planilha = '$nomePlanilha'");
+            if ($busca->num_rows > 0) {
+                $banco->query("UPDATE $tabela SET $colunaExercicio = $codExercicio WHERE $colunaExercicio IS NULL AND nome_planilha = '$nomePlanilha' LIMIT 1");
+                echo "<script>alert('Exercício adicionado com sucesso!');</script>";
+                return;
+            }
+        }
+
+        echo "<script>alert('Não foi possível adicionar o exercício.');</script>";
+    } catch (mysqli_sql_exception $e) {
+        echo "Erro de SQL: " . $e->getMessage();
+    } catch (Exception $e) {
+        echo "Erro: " . $e->getMessage();
     }
-    ?>
+}
+?>
 
 </body>
 
