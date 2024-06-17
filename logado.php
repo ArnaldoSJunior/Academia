@@ -68,7 +68,7 @@
         <form method="post">
             <div class="form-group">
                 <label for="nome">Nome do Treino</label>
-                <input type="text" class="form-control" id="nome" placeholder="Digite o nome do seu treino" name="nomePlanilha">
+                <input type="text" class="form-control" id="nome" placeholder="Digite o nome do seu treino" name="nomePlanilha" required>
             </div>
             <div class="form-group">
                 <label for="descricao">Descrição</label>
