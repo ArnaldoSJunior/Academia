@@ -74,7 +74,7 @@
                 <label for="descricao">Descrição</label>
                 <textarea class="form-control" id="descricao" rows="3" placeholder="Descrição do treino" name="descricao"></textarea>
             </div>
-            <button type="submit" class="btn btn-primary">Criar Planilha</button>
+            <button type="submit" class="btn btn-primary">Criar Planilha/ Adicionar Exercicio</button>
         </form>
     </section>
 
