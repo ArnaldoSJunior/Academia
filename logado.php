@@ -35,7 +35,7 @@
 
     <header class="jumbotron text-center bg-primary text-white">
         <h1 class="display-4">Bem-vindo aos Treinos </h1>
-        <p class="lead">Personalise seu próprio treino ou escolha um pronto para começar!</p>
+        <p class="lead">Personalize seu próprio treino ou escolha um pronto para começar!</p>
     </header>
 
     <section id="criar" class="container mt-5">
@@ -117,7 +117,7 @@
                 <div class="card mb-4">
                     <div class="card-body">
                         <h5 class="card-title">Treino B</h5>
-                        <p class="card-text">Descrição breve do Treino B.</p>
+                        <p class="card-text">Treino de inferiores.</p>
                         <a href="mostrarPlanilhas.php?treino=Treino B" class="btn btn-primary">Selecionar</a>
                     </div>
                 </div>
@@ -126,7 +126,7 @@
                 <div class="card mb-4">
                     <div class="card-body">
                         <h5 class="card-title">Treino C</h5>
-                        <p class="card-text">Descrição breve do Treino C.</p>
+                        <p class="card-text">Treino de costas.</p>
                         <a href="mostrarPlanilhas.php?treino=Treino C" class="btn btn-primary">Selecionar</a>
                     </div>
                 </div>
