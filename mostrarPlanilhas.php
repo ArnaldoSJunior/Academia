@@ -78,8 +78,6 @@
         }
     
         $stmt->close();
-    } else {
-        echo '<p>Nenhum treino selecionado.</p>';
     }
 
     if ($resultado->num_rows > 0) {
