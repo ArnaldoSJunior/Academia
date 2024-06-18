@@ -109,7 +109,7 @@
                     <div class="card-body">
                         <h5 class="card-title">Treino A</h5>
                         <p class="card-text">Treino de peito e tríceps.</p>
-                        <a href="meus_treinos_prontos.php?treino=Treino A" class="btn btn-primary">Visualizar</a>
+                        <a href="meus_treinos_prontos.php?treino=A" class="btn btn-primary">Visualizar</a>
                     </div>
                 </div>
             </div>
@@ -118,7 +118,7 @@
                     <div class="card-body">
                         <h5 class="card-title">Treino B</h5>
                         <p class="card-text">Treino de inferiores.</p>
-                        <a href="meus_treinos_prontos.php?treino=Treino B" class="btn btn-primary">Visualizar</a>
+                        <a href="meus_treinos_prontos.php?treino=B" class="btn btn-primary">Visualizar</a>
                     </div>
                 </div>
             </div>
@@ -127,7 +127,7 @@
                     <div class="card-body">
                         <h5 class="card-title">Treino C</h5>
                         <p class="card-text">Treino de costas.</p>
-                        <a href="meus_treinos_prontos.php?treino=Treino C" class="btn btn-primary">Visualizar</a>
+                        <a href="meus_treinos_prontos.php?treino=C" class="btn btn-primary">Visualizar</a>
                     </div>
                 </div>
             </div>

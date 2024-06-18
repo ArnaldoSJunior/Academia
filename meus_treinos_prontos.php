@@ -26,67 +26,68 @@
     </header>
 
     <section class="container mt-5">
-    <?php
-    require_once "banco.php";
-    session_start();
+        <?php
+        require_once "banco.php";
+        session_start();
 
-    function exibirTreino($banco, $nomeTreino) {
-        $consulta = "SELECT * FROM planilha_pronta_A WHERE nome_treino = ?";
-        $stmt = $banco->prepare($consulta);
-        $stmt->bind_param("s", $nomeTreino);
-        $stmt->execute();
-        $resultado = $stmt->get_result();
+        function exibirTreino($banco, $nomeTreino)
+        {
+            $consulta = "SELECT * FROM planilha_pronta_$nomeTreino WHERE nome_treino = ?";
+            $stmt = $banco->prepare($consulta);
+            //$stmt->bind_param("s", $nomeTreino);
+            $stmt->execute();
+            $resultado = $stmt->get_result();
 
-        if ($resultado->num_rows > 0) {
-            echo '<div class="container mt-5">';
-            echo '<div class="row">';
-            echo '<div class="col-md-12">';
-            echo '<div class="table-responsive mb-4">';
-            echo '<h2>' . $nomeTreino . '</h2>';
-            echo '<table class="table table-bordered table-striped table-hover">';
-            echo '<thead>';
-            echo '<tr>';
-            echo '<th>Exercício</th>';
-            echo '<th>Séries</th>';
-            echo '<th>Repetições</th>';
-            echo '</tr>';
-            echo '</thead>';
-            echo '<tbody>';
-
-            while ($row = $resultado->fetch_assoc()) {
+            if ($resultado->num_rows > 0) {
+                echo '<div class="container mt-5">';
+                echo '<div class="row">';
+                echo '<div class="col-md-12">';
+                echo '<div class="table-responsive mb-4">';
+                echo '<h2>' . $nomeTreino . '</h2>';
+                echo '<table class="table table-bordered table-striped table-hover">';
+                echo '<thead>';
                 echo '<tr>';
-                echo '<td>' . $row['nome_exercicio'] . '</td>';
-                echo '<td>' . $row['series'] . '</td>';
-                echo '<td>' . $row['repeticoes'] . '</td>';
+                echo '<th>Exercício</th>';
+                echo '<th>Séries</th>';
+                echo '<th>Repetições</th>';
                 echo '</tr>';
+                echo '</thead>';
+                echo '<tbody>';
+
+                while ($row = $resultado->fetch_assoc()) {
+                    echo '<tr>';
+                    echo '<td>' . $row['nome_exercicio'] . '</td>';
+                    echo '<td>' . $row['series'] . '</td>';
+                    echo '<td>' . $row['repeticoes'] . '</td>';
+                    echo '</tr>';
+                }
+
+                echo '</tbody>';
+                echo '</table>';
+                echo '</div>';
+                echo '</div>';
+                echo '</div>';
+                echo '</div>';
+            } else {
+                echo '<p>Nenhum exercício encontrado para ' . $nomeTreino . '.</p>';
             }
 
-            echo '</tbody>';
-            echo '</table>';
-            echo '</div>';
-            echo '</div>';
-            echo '</div>';
-            echo '</div>';
-        } else {
-            echo '<p>Nenhum exercício encontrado para ' . $nomeTreino . '.</p>';
+            $stmt->close();
         }
 
-        $stmt->close();
-    }
+        if (isset($_GET['treino'])) {
+            // Exibir apenas o treino específico
+            $nomeTreino = $_GET['treino'];
+            exibirTreino($banco, $nomeTreino);
+        } else {
+            // Exibir os três treinos
+            exibirTreino($banco, 'A');
+            exibirTreino($banco, 'B');
+            exibirTreino($banco, 'C');
+        }
 
-    if (isset($_GET['treino'])) {
-        // Exibir apenas o treino específico
-        $nomeTreino = $_GET['treino'];
-        exibirTreino($banco, $nomeTreino);
-    } else {
-        // Exibir os três treinos
-        exibirTreino($banco, 'Treino A');
-        exibirTreino($banco, 'Treino B');
-        exibirTreino($banco, 'Treino C');
-    }
-
-    $banco->close();
-    ?>
+        $banco->close();
+        ?>
     </section>
 
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
