@@ -118,7 +118,7 @@
                     <div class="card-body">
                         <h5 class="card-title">Treino B</h5>
                         <p class="card-text">Descrição breve do Treino B.</p>
-                        <a href="#" class="btn btn-primary">Selecionar</a>
+                        <a href="mostrarPlanilhas.php?treino=Treino B" class="btn btn-primary">Selecionar</a>
                     </div>
                 </div>
             </div>
