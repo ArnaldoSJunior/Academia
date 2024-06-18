@@ -49,7 +49,6 @@
         </form>
     </section>
 
-
     <section class="container mt-5">
         <h2 class="text-center">Treinos Criados</h2>
         <form method="post">
@@ -87,7 +86,6 @@
     <?php
 
     require_once "banco.php";
-
 
     $nomePlanilha = $_POST['treinos'] ?? null;
     $usuario = $_SESSION['usuario'] ?? null;
@@ -144,5 +142,4 @@
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
-
 </html>
