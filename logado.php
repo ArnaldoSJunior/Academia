@@ -38,51 +38,76 @@
         <p class="lead">Personalise seu próprio treino ou escolha um pronto para começar!</p>
     </header>
 
-    <?php
-
-    session_start();
-
-    $nomePlanilha = $_SESSION['nomePlanilha'] ?? null;
-    $descricao = $_SESSION['descricao'] ?? null;
-
-    require_once "banco.php";
-
-    $nomePlanilha = $_POST['nomePlanilha'] ?? null;
-    $descricao = $_POST['descricao'] ?? null;
-
-
-    if (is_null($nomePlanilha) && is_null($descricao)) {
-    } else {
-
-        $busca = $banco->query("SELECT * FROM planilha_personalizada WHERE nome_planilha='$nomePlanilha'");
-
-        if ($busca->num_rows == 0) {
-            $_SESSION['nomePlanilha'] = $nomePlanilha;
-            $_SESSION['descricao'] = $descricao;
-            header("Location: Treinos.php");
-        } else {
-            echo "<script>alert('Nome de planilha já existe, por favor deigite outro nome');</script>";
-        }
-    }
-
-    ?>
-
     <section id="criar" class="container mt-5">
-        <form method="post">
-        <section id="criar" class="container mt-5">
         <h2 class="text-center">Criar Treino</h2>
-        <form method="post">
+        <form method="post" action="">
             <div class="form-group">
                 <label for="nome">Nome do Treino</label>
                 <input type="text" class="form-control" id="nome" placeholder="Digite o nome do seu treino" name="nomePlanilha" required>
             </div>
-            <div class="form-group">
-                <label for="descricao">Descrição</label>
-                <textarea class="form-control" id="descricao" rows="3" placeholder="Descrição do treino" name="descricao"></textarea>
-            </div>
             <button type="submit" class="btn btn-primary">Criar</button>
         </form>
     </section>
+
+
+    <section class="container mt-5">
+        <h2 class="text-center">Treinos Criados</h2>
+        <form method="form">
+            <div class="form-group">
+                <label for="treinos">Selecione um Treino</label>
+                <select class="form-control" id="treinos" name="treinos">
+                    <?php
+                    // Inicia ou retoma a sessão
+                    session_start();
+                    // Verifica se a sessão 'treinos' existe, senão cria uma array vazia
+                    if (!isset($_SESSION['treino'])) {
+                        $_SESSION['treino'] = [];
+                    }
+
+                    // Adiciona o novo treino à sessão se não estiver duplicado
+                    if ($_SERVER["REQUEST_METHOD"] == "POST" && !empty($_POST['nomePlanilha'])) {
+                        $nomeTreino = htmlspecialchars($_POST['nomePlanilha']);
+                        if (!in_array($nomeTreino, $_SESSION['treino'])) {
+                            $_SESSION['treino'][] = $nomeTreino;
+                        }
+                    }
+
+                    // Exibe as opções salvas
+                    foreach ($_SESSION['treino'] as $treino) {
+                        echo "<option value=\"$treino\">$treino</option>";
+                    }
+                    $nomePlanilha = $_SESSION['nomePlanilha'] ?? null;
+
+                    require_once "banco.php";
+
+
+                    $nomePlanilha = $_POST['treinos'] ?? null;
+
+                    if (isset($_POST['selecionar'])) {
+                        if (is_null($nomePlanilha)) {
+                        } else {
+
+                            $busca = $banco->query("SELECT * FROM planilha_personalizada WHERE nome_planilha='$nomePlanilha'");
+
+                            if ($busca->num_rows == 0) {
+                                echo "<script>alert('Erro ao selecionar planilha');</script>";
+                                
+                            } else {
+                                $_SESSION['nomePlanilha'] = $nomePlanilha;
+                                header("Location:Treinos.php");
+                            }
+                        }
+                    }
+
+
+
+                    ?>
+                </select>
+            </div>
+            <button type="submit" class="btn btn-primary" name="selecionar">Selecionar Planilha</button>
+        </form>
+    </section>
+
 
 
 
