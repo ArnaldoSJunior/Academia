@@ -83,7 +83,8 @@
                <div class="col-md-4">
                     <div class="treinos">
                          <h4>Cardio</h4>
-                         <select name="treino" id="treino" class="form-select form-select-lg mb-5 p-1 pb-2" aria-label="Large select example">
+                         <form method="POST" action="Exercicios.php"> 
+                              <select name="cardio_exercicio" id="treino" class="form-select form-select-lg mb-5 p-1 pb-2" aria-label="Large select example">
                               <option value="exercicio">Exercício</option>
                               <option value="cardiop1">Esteira</option>
                               <option value="cardiop2">Bike</option>
@@ -92,7 +93,7 @@
                               <option value="cardiop5">Cross Trainer</option>
                               <option value="cardiop6">Stair Climber</option>
                          </select><br>
-                         <select name="serie" id="treino" class="form-select form-select-lg mb-4 p-1 pb-2" aria-label="Large select example">
+                         <select name="cardio_tempo" id="treino" class="form-select form-select-lg mb-4 p-1 pb-2" aria-label="Large select example">
                               <option value="cardiop7">Tempo</option>
                               <option value="cardiop8">10 min</option>
                               <option value="cardiop9">15 min</option>
@@ -100,13 +101,15 @@
                               <option value="cardiop11">25 min</option>
                               <option value="cardiop12">30 min</option>
                          </select>
-                         <button type="button" class="btn btn-primary">Adicionar</button>
+                         <button type="button" class="btn btn-primary">Adicionar</button></form>
+                       
                     </div>
                </div>
                <div class="col-md-4">
                     <div class="treinos">
                          <h4>Peito</h4>
-                         <select name="peito" id="treino" class="form-select form-select-md mb-3 p-1" aria-label="Large select example">
+                         <form method="POST" action="Exercicios.php"> 
+                              <select name="peito_exercicio" id="treino" class="form-select form-select-md mb-3 p-1" aria-label="Large select example">
                               <option value="exercicio">Exercício</option>
                               <option value="peitop1">Supino reto</option>
                               <option value="peitop2">Supino inclinado barra</option>
@@ -115,7 +118,7 @@
                               <option value="peitop5">Voador</option>
                               <option value="peitop6">Flexão de braços</option>
                          </select><br>
-                         <select name="serie" id="treino" class="form-select form-select-md mb-3 p-1" aria-label="Large select example">
+                         <select name="peito_serie" id="treino" class="form-select form-select-md mb-3 p-1" aria-label="Large select example">
                               <option value="serie">Séries</option>
                               <option value="peitop7">1</option>
                               <option value="peitop8">2</option>
@@ -123,7 +126,7 @@
                               <option value="peitop10">4</option>
                               <option value="peitop11">5</option>
                          </select><br>
-                         <select name="repeticoes" id="treino" class="form-select form-select-md mb-3 p-1" aria-label="Large select example">
+                         <select name="peito_repeticoes" id="treino" class="form-select form-select-md mb-3 p-1" aria-label="Large select example">
                               <option value="repeticao">Repetições</option>
                               <option value="peitop12">6</option>
                               <option value="peitop12">8</option>
@@ -131,13 +134,15 @@
                               <option value="peitop13">12</option>
                               <option value="peitop14">15</option>
                          </select>
-                         <button type="button" class="btn btn-primary">Adicionar</button>
+                         <button type="button" class="btn btn-primary">Adicionar</button></form>
+                        
                     </div>
                </div>
                <div class="col-md-4">
                     <div class="treinos">
                          <h4>Costas</h4>
-                         <select name="treino" id="treino" class="form-select form-select-lg mb-3 p-1" aria-label="Large select example">
+                         <form method="POST" action="Exercicios.php"> 
+                         <select name="costas_exercicio" id="treino" class="form-select form-select-lg mb-3 p-1" aria-label="Large select example">
                               <option value="exercicio">Exercício</option>
                               <option value="costasop1">Puxada frontal polia alta</option>
                               <option value="costasop2">Remada fechada</option>
@@ -146,7 +151,7 @@
                               <option value="costasop5">Pulldown polia alta</option>
                               <option value="costasop6">Remada sentada polia baixa</option>
                          </select><br>
-                         <select name="serie" id="treino" class="form-select form-select-lg mb-3 p-1" aria-label="Large select example">
+                         <select name="costas_serie" id="treino" class="form-select form-select-lg mb-3 p-1" aria-label="Large select example">
                               <option value="series">Séries</option>
                               <option value="costasop6">1</option>
                               <option value="costasop7">2</option>
@@ -154,7 +159,7 @@
                               <option value="costasop9">4</option>
                               <option value="costasop10">5</option>
                          </select><br>
-                         <select name="repeticoes" id="treino" class="form-select form-select-lg mb-3 p-1" aria-label="Large select example">
+                         <select name="costas_repeticoes" id="treino" class="form-select form-select-lg mb-3 p-1" aria-label="Large select example">
                               <option value="repeticoes">Repetições</option>
                               <option value="peitop12">6</option>
                               <option value="peitop12">8</option>
@@ -162,13 +167,15 @@
                               <option value="costasop12">12</option>
                               <option value="costasop13">15</option>
                          </select>
-                         <button type="button" class="btn btn-primary">Adicionar</button>
+                         <button type="button" class="btn btn-primary">Adicionar</button></form>
+                        
                     </div>
                </div>
                <div class="col-md-4">
                     <div class="treinos">
                          <h4>Ombros</h4>
-                         <select name="treino" id="treino" class="form-select form-select-lg mb-3 p-1" aria-label="Large select example">
+                         <form method="POST" action="Exercicios.php">     
+                              <select name="ombros_exercicio" id="treino" class="form-select form-select-lg mb-3 p-1" aria-label="Large select example">
                               <option value="exercicio">Exercício</option>
                               <option value="ombrop1">Elevação lateral halteres</option>
                               <option value="ombrop2">Elevação frontal halteres</option>
@@ -177,7 +184,7 @@
                               <option value="ombrop5">Elevação posterior de ombros</option>
                               <option value="ombrop6">Remada alta (Upright Row)</option>
                          </select><br>
-                         <select name="serie" id="treino" class="form-select form-select-lg mb-3 p-1" aria-label="Large select example">
+                         <select name="ombros_serie" id="treino" class="form-select form-select-lg mb-3 p-1" aria-label="Large select example">
                               <option value="serie">Séries</option>
                               <option value="ombrop7">1</option>
                               <option value="ombrop8">2</option>
@@ -185,7 +192,7 @@
                               <option value="ombrop10">4</option>
                               <option value="ombrop11">5</option>
                          </select><br>
-                         <select name="repeticoes" id="treino" class="form-select form-select-lg mb-3 p-1" aria-label="Large select example">
+                         <select name="ombros_repeticoes" id="treino" class="form-select form-select-lg mb-3 p-1" aria-label="Large select example">
                               <option value="repeticoes">Repetições</option>
                               <option value="peitop12">6</option>
                               <option value="peitop12">8</option>
@@ -193,20 +200,22 @@
                               <option value="ombrop13">12</option>
                               <option value="ombrop14">15</option>
                          </select>
-                         <button type="button" class="btn btn-primary">Adicionar</button>
+                         <button type="button" class="btn btn-primary">Adicionar</button></form>
+                 
                     </div>
                </div>
                <div class="col-md-4">
                     <div class="treinos">
                          <h4>Tríceps</h4>
-                         <select name="treino" id="treino" class="form-select form-select-lg mb-3 p-1" aria-label="Large select example">
+                         <form method="POST" action="Exercicios.php">  
+                         <select name="triceps_exercicio" id="treino" class="form-select form-select-lg mb-3 p-1" aria-label="Large select example">
                               <option value="exercicio">Exercício</option>
                               <option value="tricepsop1">Tríceps testa barra</option>
                               <option value="tricepsop2">Tríceps corda polia alta</option>
                               <option value="tricepsop3">Tríceps francês</option>
                               <option value="tricepsop4">Tríceps coice polia</option>
                          </select><br>
-                         <select name="serie" id="treino" class="form-select form-select-lg mb-3 p-1" aria-label="Large select example">
+                         <select name="triceps_serie" id="treino" class="form-select form-select-lg mb-3 p-1" aria-label="Large select example">
                               <option value="serie">Séries</option>
                               <option value="tricepsop7">1</option>
                               <option value="tricepsop8">2</option>
@@ -214,7 +223,7 @@
                               <option value="tricepsop10">4</option>
                               <option value="tricepsop11">5</option>
                          </select><br>
-                         <select name="repeticoes" id="treino" class="form-select form-select-lg mb-3 p-1" aria-label="Large select example">
+                         <select name="triceps_repeticoes" id="treino" class="form-select form-select-lg mb-3 p-1" aria-label="Large select example">
                               <option value="repeticoes">Repetições</option>
                               <option value="peitop12">6</option>
                               <option value="peitop12">8</option>
@@ -222,20 +231,22 @@
                               <option value="tricepsop13">12</option>
                               <option value="tricepsop14">15</option>
                          </select>
-                         <button type="button" class="btn btn-primary">Adicionar</button>
+                         <button type="button" class="btn btn-primary">Adicionar</button></form>
+                      
                     </div>
                </div>
                <div class="col-md-4">
                     <div class="treinos">
                          <h4>Bíceps</h4>
-                         <select name="treino" id="treino" class="form-select form-select-lg mb-3 p-1" aria-label="Large select example">
+                         <form method="POST" action="Exercicios.php">
+                              <select name="biceps_exercicio" id="treino" class="form-select form-select-lg mb-3 p-1" aria-label="Large select example">
                               <option value="exercicio">Exercício</option>
                               <option value="biceps1">Rosca direta barra</option>
                               <option value="biceps2">Rosca concentrada halteres</option>
                               <option value="biceps3">Rosca Scott</option>
                               <option value="biceps4">Rosca Bayesian</option>
                          </select><br>
-                         <select name="serie" id="treino" class="form-select form-select-lg mb-3 p-1" aria-label="Large select example">
+                         <select name="biceps_serie" id="treino" class="form-select form-select-lg mb-3 p-1" aria-label="Large select example">
                               <option value="serie">Séries</option>
                               <option value="tricepsop7">1</option>
                               <option value="tricepsop8">2</option>
@@ -243,7 +254,7 @@
                               <option value="tricepsop10">4</option>
                               <option value="tricepsop11">5</option>
                          </select><br>
-                         <select name="repeticoes" id="treino" class="form-select form-select-lg mb-3 p-1" aria-label="Large select example">
+                         <select name="biceps_repeticoes" id="treino" class="form-select form-select-lg mb-3 p-1" aria-label="Large select example">
                               <option value="repeticoes">Repetições</option>
                               <option value="peitop12">6</option>
                               <option value="peitop12">8</option>
@@ -251,14 +262,16 @@
                               <option value="tricepsop13">12</option>
                               <option value="tricepsop14">15</option>
                          </select>
-                         <button type="button" class="btn btn-primary">Adicionar</button>
+                         <button type="button" class="btn btn-primary">Adicionar</button></form>
+                        
                     </div>
                </div>
                <div class="col-md-4">
 
                     <div class="treinos">
                          <h4>Pernas</h4>
-                         <select name="treino" id="treino" class="form-select form-select-lg mb-3 p-1" aria-label="Large select example">
+                         <form method="POST" action="Exercicios.php">     
+                         <select name="pernas_exercicio" id="treino" class="form-select form-select-lg mb-3 p-1" aria-label="Large select example">
                               <option value="exercicios">Exercício</option>
                               <option value="pernasop1">Leg press 45º</option>
                               <option value="pernasop2">Cadeira extensora</option>
@@ -267,7 +280,7 @@
                               <option value="pernasop5">Extensora</option>
                               <option value="pernasop6">Afundo com barra</option>
                          </select><br>
-                         <select name="serie" id="treino" class="form-select form-select-lg mb-3 p-1" aria-label="Large select example">
+                         <select name="pernas_serie" id="treino" class="form-select form-select-lg mb-3 p-1" aria-label="Large select example">
                               <option value="serie">Séries</option>
                               <option value="pernasop7">1</option>
                               <option value="pernasop8">2</option>
@@ -275,7 +288,7 @@
                               <option value="pernasop10">4</option>
                               <option value="pernasop11">5</option>
                          </select><br>
-                         <select name="repeticoes" id="treino" class="form-select form-select-lg mb-3 p-1" aria-label="Large select example">
+                         <select name="pernas_repeticao" id="treino" class="form-select form-select-lg mb-3 p-1" aria-label="Large select example">
                               <option value="repeticoes">Repetições</option>
                               <option value="peitop12">6</option>
                               <option value="peitop12">8</option>
@@ -283,14 +296,15 @@
                               <option value="pernasop13">12</option>
                               <option value="pernasop14">15</option>
                          </select>
-                         <button type="button" class="btn btn-primary">Adicionar</button>
+                         <button type="button" class="btn btn-primary">Adicionar</button></form>
+                   
                     </div>
                </div>
                <div class="col-md-4">
                     <div class="treinos">
                          <h4>Abdômen</h4>
-                         <select name="treino" id="treino" class="form-select form-select-lg mb-3 p-1" aria-label="Large select example">
-                              <option value="exericicio">Exercício</option>
+                         <form method="POST" action="Exercicios.php"><select name="treino" id="treino" class="form-select form-select-lg mb-3 p-1" aria-label="Large select example">
+                              <option value="abdomen_exericicio">Exercício</option>
                               <option value="abdomenop1">Abdominal na prancha inclinada</option>
                               <option value="abdomenop2">Prancha abdominal estática</option>
                               <option value="abdomenop3">Elevação de pernas na barra fixa</option>
@@ -298,7 +312,7 @@
                               <option value="abdomenop5">Prancha lateral</option>
                               <option value="abdomenop6">Flexão de pernas na barra fixa</option>
                          </select><br>
-                         <select name="serie" id="treino" class="form-select form-select-lg mb-3 p-1" aria-label="Large select example">
+                         <select name="abdomen_serie" id="treino" class="form-select form-select-lg mb-3 p-1" aria-label="Large select example">
                               <option value="serie">Séries</option>
                               <option value="abdomenop7">1</option>
                               <option value="abdomenop8">2</option>
@@ -306,19 +320,47 @@
                               <option value="abdomenop10">4</option>
                               <option value="abdomenop11">5</option>
                          </select><br>
-                         <select name="repeticoes" id="treino" class="form-select form-select-lg mb-3 p-1" aria-label="Large select example">
+                         <select name="abdomen_repeticao" id="treino" class="form-select form-select-lg mb-3 p-1" aria-label="Large select example">
                               <option value="repeticoes">Repeticoes</option>
-                              <option value="peitop12">6</option>
-                              <option value="peitop12">8</option>
-                              <option value="abdomenop12">10</option>
-                              <option value="abdomenop13">12</option>
-                              <option value="abdomenop14">15</option>
+                              <option value="abdomenop12">6</option>
+                              <option value="abdomenop13">8</option>
+                              <option value="abdomenop14">10</option>
+                              <option value="abdomenop15">12</option>
+                              <option value="abdomenop16">15</option>
                          </select>
-                         <button type="button" class="btn btn-primary">Adicionar</button>
+                         <button type="button" class="btn btn-primary">Adicionar</button></form>
+                         
                     </div>
                </div>
           </div>
      </div>
+
+     <?php 
+
+require 'Treinos.php';
+
+// Verifique se o formulário foi enviado
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $nomeExercicio = $_POST['nomeExercicio'];
+    $series = $_POST['series'];
+    $repeticoes = $_POST['repeticoes'];
+
+    // Crie uma instância da classe Treino
+    $treino = new Treino("localhost", "root", "", "bd_academia");
+
+    // Adicione o exercício
+    $treino->adicionarExercicio($nomeExercicio, $series, $repeticoes);
+
+}
+
+?>
+
+
+
+
+
+
+
 
      <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
      <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
