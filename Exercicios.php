@@ -36,7 +36,7 @@ require 'Treinos.php';
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $usuario = $_POST['usuario'];
     $data = $_POST['data'];
-    $exercicio = $_POST['exercicio'];
+    $nomeExercicio = $_POST['nomeExercicio'];
     $series = $_POST['series'];
     $repeticoes = $_POST['repeticoes'];
 
