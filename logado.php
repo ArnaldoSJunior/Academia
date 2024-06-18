@@ -10,7 +10,7 @@
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-lg navbar-dark">
+    <nav class="navbar navbar-expand-lg navbar-dark"">
         <a class="navbar-brand " href="#">Planilha de Treino</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -18,16 +18,19 @@
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item">
-                    <a class="btn btn-outline-primary mx-1" href="mostrarPlanilhas.php  ">Mostrar Planilhas</a>
+                    <a class="btn btn-outline-light mx-1" href="mostrarPlanilhas.php  ">Mostrar Planilhas</a>
                 </li>
                 <li class="nav-item">
-                    <a class="btn btn-outline-primary mx-1" href="#criar">Criar Planilha</a>
+                    <a class="btn btn-outline-light mx-1" href="#criar">Criar Planilha</a>
                 </li>
                 <li class="nav-item">
-                    <a class="btn btn-outline-primary mx-1" href="#pegar">Pegar Planilha Pronta</a>
+                    <a class="btn btn-outline-light mx-1" href="#pegar">Pegar Planilha Pronta</a>
                 </li>
                 <li class="nav-item">
-                    <a class="btn btn-outline-primary mx-1" href="logout.php">Logout</a>
+                    <a class="btn btn-outline-light mx-1" href="meus_treinos_prontos.php">Meus Treinos Prontos</a>
+                </li>
+                <li class="nav-item">
+                    <a class="btn btn-outline-light  mx-1" href="logout.php">Logout</a>
                 </li>
             </ul>
         </div>
@@ -109,7 +112,7 @@
                     <div class="card-body">
                         <h5 class="card-title">Treino A</h5>
                         <p class="card-text">Treino de peito e tríceps.</p>
-                        <a href="mostrarPlanilhas.php?treino=Treino A" class="btn btn-primary">Selecionar</a>
+                        <a href="meus_treinos_prontos.php?treino=Treino A" class="btn btn-primary">Visualizar</a>
                     </div>
                 </div>
             </div>
@@ -118,7 +121,7 @@
                     <div class="card-body">
                         <h5 class="card-title">Treino B</h5>
                         <p class="card-text">Treino de inferiores.</p>
-                        <a href="mostrarPlanilhas.php?treino=Treino B" class="btn btn-primary">Selecionar</a>
+                        <a href="meus_treinos_prontos.php?treino=Treino B" class="btn btn-primary">Visualizar</a>
                     </div>
                 </div>
             </div>
@@ -127,7 +130,7 @@
                     <div class="card-body">
                         <h5 class="card-title">Treino C</h5>
                         <p class="card-text">Treino de costas.</p>
-                        <a href="mostrarPlanilhas.php?treino=Treino C" class="btn btn-primary">Selecionar</a>
+                        <a href="meus_treinos_prontos.php?treino=Treino C" class="btn btn-primary">Visualizar</a>
                     </div>
                 </div>
             </div>

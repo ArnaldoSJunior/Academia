@@ -34,8 +34,6 @@
     $consulta = "SELECT cod, nome_planilha FROM $tabela";
     $resultado = $banco->query($consulta);
 
-    
-
     if (isset($_GET['treino'])) {
         $nomeTreino = $_GET['treino'];
     
@@ -52,7 +50,7 @@
             echo '<div class="table-responsive mb-4">';
             echo '<table class="table table-bordered table-striped table-hover">';
             echo '<thead>';
-            echo '<h2>' . $nomeTreino . '<h2>';
+            echo '<h2>' . $nomeTreino .'<h2>';
             echo '<tr>';
             echo '<th>Exercício</th>';
             echo '<th>Séries</th>';
@@ -83,8 +81,6 @@
     } else {
         echo '<p>Nenhum treino selecionado.</p>';
     }
-
-
 
     if ($resultado->num_rows > 0) {
         while ($row = $resultado->fetch_assoc()) {
