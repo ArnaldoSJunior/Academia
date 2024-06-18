@@ -13,7 +13,7 @@
     <header>
         <nav class="navbar navbar-expand-lg navbar-dark shadow">
             <div class="text-left text-white p-3">
-                <h1>Treinos</h1>
+                <h1>Exercícios</h1>
             </div>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ml-auto">
