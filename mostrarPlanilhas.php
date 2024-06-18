@@ -52,6 +52,7 @@
             echo '<div class="table-responsive mb-4">';
             echo '<table class="table table-bordered table-striped table-hover">';
             echo '<thead>';
+            echo '<h2>' . $nomeTreino . '<h2>';
             echo '<tr>';
             echo '<th>Exercício</th>';
             echo '<th>Séries</th>';
