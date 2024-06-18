@@ -40,11 +40,11 @@
          <select name="treino" id="treino" class="form-select form-select-lg mb-3" aria-label="Large select example">
              <option value="exercicio">Exercício</option>
              <option value="cardiop1">Esteira</option>
-             <option value="cardiop2">Bicicleta</option>
-             <option value="cardiop3"></option>
-             <option value="cardiop4"></option>
-             <option value="cardiop5"></option>
-             <option value="cardiop6"></option>
+             <option value="cardiop2">Bike</option>
+             <option value="cardiop3">Elíptico</option>
+             <option value="cardiop4">Máquina de Remo</option>
+             <option value="cardiop5">Cross Trainer</option>
+             <option value="cardiop6">Stair Climber</option>
         </select>
         <select name="serie" id="treino" class="form-select form-select-lg mb-3" aria-label="Large select example">
              <option value="cardiop7">Tempo</option>
