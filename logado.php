@@ -59,7 +59,7 @@
         if ($busca->num_rows == 0) {
             $_SESSION['nomePlanilha'] = $nomePlanilha;
             $_SESSION['descricao'] = $descricao;
-            header("Location: planilhaPersonalizada.php");
+            header("Location: Treinos.php");
         } else {
             echo "<script>alert('Nome de planilha já existe, por favor deigite outro nome');</script>";
         }
@@ -68,13 +68,25 @@
     ?>
 
     <section id="criar" class="container mt-5">
-        <h2 class="text-center">Treino personalizado</h2>
         <form method="post">
+        <section id="criar" class="container mt-5">
+        <h2 class="text-center">Criar Planilha de Treino</h2>
+        <form method="post">
+            <div class="form-group">
+                <label for="nome">Nome do Treino</label>
+                <input type="text" class="form-control" id="nome" placeholder="Digite o nome do seu treino" name="nomePlanilha" required>
+            </div>
+            <div class="form-group">
+                <label for="descricao">Descrição</label>
+                <textarea class="form-control" id="descricao" rows="3" placeholder="Descrição do treino" name="descricao"></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary">Criar Planilha/ Adicionar Exercicio</button>
+        </form>
+    </section>
 
 
 
-
-    <div>
+    <!-- <div>
         <h4>Cardio</h4>
          <select name="treino" id="treino" class="form-select form-select-lg mb-3" aria-label="Large select example">
              <option value="exercicio">Exercício</option>
@@ -268,32 +280,7 @@
              <option value="valor_da_opção3">15</option>
         </select>
         <button type= "button" class="btn btn-primary" style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .10rem; --bs-btn-font-size: .75rem;">Inserir</button>
-    </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    </div> -->
 
     <section id="pegar" class="container mt-5">
         <h2 class="text-center">Treinos prontos</h2>
