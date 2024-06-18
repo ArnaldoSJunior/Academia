@@ -24,9 +24,6 @@
                     <a class="btn btn-outline-light mx-1" href="#criar">Criar Planilha</a>
                 </li>
                 <li class="nav-item">
-                    <a class="btn btn-outline-light mx-1" href="#pegar">Pegar Planilha Pronta</a>
-                </li>
-                <li class="nav-item">
                     <a class="btn btn-outline-light mx-1" href="meus_treinos_prontos.php">Meus Treinos Prontos</a>
                 </li>
                 <li class="nav-item">
