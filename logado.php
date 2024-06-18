@@ -95,7 +95,7 @@
         } else {
 
             $_SESSION['nomePlanilha'] = $nomePlanilha;
-            header("Location: Treinos.php");
+            header("Location: treinoPersonalizado.php");
         }
     }
 
