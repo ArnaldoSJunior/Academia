@@ -52,7 +52,7 @@
 
     <section class="container mt-5">
         <h2 class="text-center">Treinos Criados</h2>
-        <form method="form">
+        <form method="post" >
             <div class="form-group">
                 <label for="treinos">Selecione um Treino</label>
                 <select class="form-control" id="treinos" name="treinos">
@@ -76,30 +76,6 @@
                     foreach ($_SESSION['treino'] as $treino) {
                         echo "<option value=\"$treino\">$treino</option>";
                     }
-                    $nomePlanilha = $_SESSION['nomePlanilha'] ?? null;
-
-                    require_once "banco.php";
-
-
-                    $nomePlanilha = $_POST['treinos'] ?? null;
-
-                    if (isset($_POST['selecionar'])) {
-                        if (is_null($nomePlanilha)) {
-                        } else {
-
-                            $busca = $banco->query("SELECT * FROM planilha_personalizada WHERE nome_planilha='$nomePlanilha'");
-
-                            if ($busca->num_rows == 0) {
-                                echo "<script>alert('Erro ao selecionar planilha');</script>";
-                                
-                            } else {
-                                $_SESSION['nomePlanilha'] = $nomePlanilha;
-                                header("Location:Treinos.php");
-                            }
-                        }
-                    }
-
-
 
                     ?>
                 </select>
@@ -108,10 +84,29 @@
         </form>
     </section>
 
+    <?php
+
+    require_once "banco.php";
 
 
+    $nomePlanilha = $_POST['treinos'] ?? null;
+    $usuario = $_SESSION['usuario'] ?? null;
 
 
+    if (is_null($nomePlanilha) && is_null($usuario)) {
+    } else {
+
+        $busca = $banco->query("SELECT * FROM planilha_$usuario WHERE nome_planilha='$nomePlanilha'");
+
+        if ($busca->num_rows == 0) {
+
+        } else {
+            $_SESSION['nomePlanilha'] = $nomePlanilha;
+            header("Location: treinoPersonalizado.php");
+            
+        }
+    }
+    ?>
 
     <section id="pegar" class="container mt-5">
         <h2 class="text-center">Treinos prontos</h2>
