@@ -70,7 +70,7 @@
     <section id="criar" class="container mt-5">
         <form method="post">
         <section id="criar" class="container mt-5">
-        <h2 class="text-center">Criar Planilha de Treino</h2>
+        <h2 class="text-center">Criar Treino</h2>
         <form method="post">
             <div class="form-group">
                 <label for="nome">Nome do Treino</label>
@@ -80,7 +80,7 @@
                 <label for="descricao">Descrição</label>
                 <textarea class="form-control" id="descricao" rows="3" placeholder="Descrição do treino" name="descricao"></textarea>
             </div>
-            <button type="submit" class="btn btn-primary">Criar Planilha/ Adicionar Exercicio</button>
+            <button type="submit" class="btn btn-primary">Criar</button>
         </form>
     </section>
 

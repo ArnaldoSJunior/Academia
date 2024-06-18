@@ -9,7 +9,7 @@
 </head>
 <body>
 <nav class="navbar navbar-expand-lg navbar-dark">
-        <a class="navbar-brand " href="#">Planilha de Treino</a>
+        <a class="navbar-brand " href="index.php">Home</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -35,7 +35,9 @@
         <h1 class="display-4">Personalize seu treino!</h1>
         <p class="lead">Não esqueça o alongamento!</p>
     </header>
-<div>
+
+<div class="container">
+    <div>
         <h4>Cardio</h4>
          <select name="treino" id="treino" class="form-select form-select-lg mb-3" aria-label="Large select example">
              <option value="exercicio">Exercício</option>
@@ -54,7 +56,10 @@
              <option value="cardiop11">25 min</option>
              <option value="cardiop12">30 min</option>
         </select>
-        <button>Adicionar</button>
+        <button type="button" class="btn btn-primary"
+        style="--bs-btn-padding-y: .15rem; --bs-btn-padding-x: .2rem; --bs-btn-font-size: .50rem;">
+  Adicionar
+</button>
     </div>
     <div class="treinos">
     <h4>Peito</h4>
@@ -83,7 +88,10 @@
              <option value="peitop13">12</option>
              <option value="peitop14">15</option>
         </select>
-        <button>Adicionar</button>
+        <button type="button" class="btn btn-primary"
+        style="--bs-btn-padding-y: .15rem; --bs-btn-padding-x: .2rem; --bs-btn-font-size: .50rem;">
+  Adicionar
+</button>
     </div>
 
 
@@ -115,7 +123,10 @@
              <option value="costasop12">12</option>
              <option value="costasop13">15</option>
         </select>
-        <button>Adicionar</button>
+        <button type="button" class="btn btn-primary"
+        style="--bs-btn-padding-y: .15rem; --bs-btn-padding-x: .2rem; --bs-btn-font-size: .50rem;">
+  Adicionar
+</button>
     </div>
     <div class="treinos">
         <h4>Ombros</h4>
@@ -143,7 +154,10 @@
              <option value="ombrop13">12</option>
              <option value="ombrop14">15</option> 
         </select>
-        <button>Adicionar</button>
+        <button type="button" class="btn btn-primary"
+        style="--bs-btn-padding-y: .15rem; --bs-btn-padding-x: .2rem; --bs-btn-font-size: .50rem;">
+  Adicionar
+</button>
     </div>
     <div class="treinos">
         <h4>Tríceps</h4>
@@ -171,7 +185,10 @@
              <option value="tricepsop13">12</option>
              <option value="tricepsop14">15</option>
         </select>
-        <button>Adicionar</button>
+        <button type="button" class="btn btn-primary"
+        style="--bs-btn-padding-y: .15rem; --bs-btn-padding-x: .2rem; --bs-btn-font-size: .50rem;">
+  Adicionar
+</button>
     </div>
     <div class="treinos">
         <h4>Pernas</h4>
@@ -199,7 +216,10 @@
              <option value="pernasop13">12</option>
              <option value="pernasop14">15</option>
         </select>
-        <button>Inserir</button>
+        <button type="button" class="btn btn-primary"
+        style="--bs-btn-padding-y: .15rem; --bs-btn-padding-x: .2rem; --bs-btn-font-size: .50rem;">
+  Adicionar
+</button>
     </div>
 
     <div class="treinos">
@@ -228,6 +248,13 @@
              <option value="abdomenop13">12</option>
              <option value="abdomenop14">15</option>
         </select>
-        <button type= "button" class="btn btn-primary" style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .10rem; --bs-btn-font-size: .75rem;">Inserir</button>
+        <button type="button" class="btn btn-primary"
+        style="--bs-btn-padding-y: .15rem; --bs-btn-padding-x: .2rem; --bs-btn-font-size: .50rem;">
+  Adicionar
+</button>
+</div>
+
+
+
 </body>
 </html>
