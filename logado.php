@@ -108,8 +108,8 @@
                 <div class="card mb-4">
                     <div class="card-body">
                         <h5 class="card-title">Treino A</h5>
-                        <p class="card-text">Descrição breve do Treino A.</p>
-                        <a href="#" class="btn btn-primary">Selecionar</a>
+                        <p class="card-text">Treino de peito e tríceps.</p>
+                        <a href="mostrarPlanilhas.php?treino=Treino A" class="btn btn-primary">Selecionar</a>
                     </div>
                 </div>
             </div>

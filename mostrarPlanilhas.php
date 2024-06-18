@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
-    <title>Planilhas Personalizadas</title>
+    <title>Minhas Planilhas</title>
     <link rel="stylesheet" href="styles/style_planilha_exibicao.css">
 </head>
 
@@ -13,7 +13,7 @@
     <header>
         <nav class="navbar navbar-expand-lg navbar-dark shadow">
             <div class="text-left text-white p-3">
-                <h1>Planilhas Personalizadas</h1>
+                <h1>Minhas Planilhas</h1>
             </div>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ml-auto">
@@ -33,6 +33,57 @@
     $tabela = "planilha_" . $banco->real_escape_string($usu);
     $consulta = "SELECT cod, nome_planilha FROM $tabela";
     $resultado = $banco->query($consulta);
+
+    
+
+    if (isset($_GET['treino'])) {
+        $nomeTreino = $_GET['treino'];
+    
+        $consulta = "SELECT * FROM planilha_pronta_A WHERE nome_treino = ?";
+        $stmt = $banco->prepare($consulta);
+        $stmt->bind_param("s", $nomeTreino);
+        $stmt->execute();
+        $resultado = $stmt->get_result();
+    
+        if ($resultado->num_rows > 0) {
+            echo '<div class="container mt-5">';
+            echo '<div class="row">';
+            echo '<div class="col-md-12">';
+            echo '<div class="table-responsive mb-4">';
+            echo '<table class="table table-bordered table-striped table-hover">';
+            echo '<thead>';
+            echo '<tr>';
+            echo '<th>Exercício</th>';
+            echo '<th>Séries</th>';
+            echo '<th>Repetições</th>';
+            echo '</tr>';
+            echo '</thead>';
+            echo '<tbody>';
+    
+            while ($row = $resultado->fetch_assoc()) {
+                echo '<tr>';
+                echo '<td>' . $row['nome_exercicio'] . '</td>';
+                echo '<td>' . $row['series'] . '</td>';
+                echo '<td>' . $row['repeticoes'] . '</td>';
+                echo '</tr>';
+            }
+    
+            echo '</tbody>';
+            echo '</table>';
+            echo '</div>';
+            echo '</div>';
+            echo '</div>';
+            echo '</div>';
+        } else {
+            echo '<p>Nenhum exercício encontrado para o treino selecionado.</p>';
+        }
+    
+        $stmt->close();
+    } else {
+        echo '<p>Nenhum treino selecionado.</p>';
+    }
+
+
 
     if ($resultado->num_rows > 0) {
         while ($row = $resultado->fetch_assoc()) {
