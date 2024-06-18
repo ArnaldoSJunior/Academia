@@ -26,60 +26,76 @@
     </header>
 
     <?php
-    session_start();
-    require_once "banco.php";
+session_start();
+require_once "banco.php";
 
-    $usu = $_SESSION['usuario'];
-    $nomePlanilha = $_SESSION['nomePlanilha'] ?? null;
+$usu = $_SESSION['usuario'];
+$nomePlanilha = $_SESSION['nomePlanilha'] ?? null;
 
-    if ($nomePlanilha == null) {
-        die("Nome da planilha não fornecido");
-    }
+if ($nomePlanilha == null) {
+    die("Nome da planilha não fornecido");
+}
 
-    try {
-        // Tenta selecionar dados da tabela do usuário
-        $tabela = "planilha_" . $banco->real_escape_string($usu);
-        $busca = $banco->query("SELECT * FROM $tabela");
+try {
+    // Escapa o nome da tabela para evitar injeção de SQL
+    $tabela = "planilha_" . $banco->real_escape_string($usu);
+    
+    // Tenta selecionar dados da tabela do usuário
+    $busca = $banco->query("SELECT * FROM $tabela");
 
-        // Se a tabela não existe, cria uma nova tabela
-        if ($busca === false) {
-            $q = "CREATE TABLE IF NOT EXISTS $tabela (
-                cod INT NOT NULL AUTO_INCREMENT
-                nome_planilha VARCHAR(255) NOT NULL,
-                PRIMARY KEY (cod)
-            )";
+    // Se a tabela não existe, cria uma nova tabela
+    if ($busca === false) {
+        $criaTabela = "CREATE TABLE IF NOT EXISTS $tabela (
+            cod INT NOT NULL AUTO_INCREMENT,
+            nome_planilha VARCHAR(255) NOT NULL,
+            PRIMARY KEY (cod)
+        )";
 
-            $t = "INSERT INTO $tabela (cod, nome_planilha) VALUES (NULL, '$nomePlanilha')";
-            $resp = $banco->query($t);
-        } else {
-            $busca = $banco->query("SELECT * FROM $tabela WHERE nome_planilha = '$nomePlanilha'");
-            if ($busca->num_rows == 0) {
-                $s = "INSERT INTO planilha_$usu (cod, nome_planilha) VALUES (NULL, '$nomePlanilha')";
-                $resp = $banco->query($s);
-            }
-
-            // Inserindo dados na tabela
-        }
-    } catch (mysqli_sql_exception $e) {
-        if ($e->getCode() == 1146) { // Código de erro para tabela não encontrada
-            $q = "CREATE TABLE IF NOT EXISTS $tabela (
-                cod INT NOT NULL AUTO_INCREMENT,
-                nome_planilha VARCHAR(255) NOT NULL,
-                PRIMARY KEY (cod)
-            )";
-            $s = "INSERT INTO planilha_$usu (cod, nome_planilha) VALUES (NULL, '$nomePlanilha')";
-
-            $resp = $banco->query($s);
-
-
+        if ($banco->query($criaTabela)) {
             echo "Tabela criada com sucesso.";
         } else {
-            echo "Erro: " . $e->getMessage();
+            throw new Exception("Erro ao criar a tabela: " . $banco->error);
         }
-    } catch (Exception $e) {
+    }
+
+    // Verifica se a planilha já existe na tabela do usuário
+    $busca = $banco->query("SELECT * FROM $tabela WHERE nome_planilha = '$nomePlanilha'");
+    if ($busca->num_rows == 0) {
+        $inserePlanilha = "INSERT INTO $tabela (nome_planilha) VALUES ('$nomePlanilha')";
+        if ($banco->query($inserePlanilha)) {
+            echo "Planilha '$nomePlanilha' inserida com sucesso.";
+        } else {
+            throw new Exception("Erro ao inserir a planilha: " . $banco->error);
+        }
+    } else {
+        echo "A planilha '$nomePlanilha' já existe.";
+    }
+
+} catch (mysqli_sql_exception $e) {
+    if ($e->getCode() == 1146) { // Código de erro para tabela não encontrada
+        $criaTabela = "CREATE TABLE IF NOT EXISTS $tabela (
+            cod INT NOT NULL AUTO_INCREMENT,
+            nome_planilha VARCHAR(255) NOT NULL,
+            PRIMARY KEY (cod)
+        )";
+        if ($banco->query($criaTabela)) {
+            echo "Tabela criada com sucesso.";
+            $inserePlanilha = "INSERT INTO $tabela (nome_planilha) VALUES ('$nomePlanilha')";
+            if ($banco->query($inserePlanilha)) {
+                echo "Planilha '$nomePlanilha' inserida com sucesso.";
+            } else {
+                throw new Exception("Erro ao inserir a planilha: " . $banco->error);
+            }
+        } else {
+            throw new Exception("Erro ao criar a tabela: " . $banco->error);
+        }
+    } else {
         echo "Erro: " . $e->getMessage();
     }
-    ?>
+} catch (Exception $e) {
+    echo "Erro: " . $e->getMessage();
+}
+?>
 
     <div class="container-sm d-flex flex-column justify-content-center mt-5">
         <div class="container divExercicio rounded shadow">

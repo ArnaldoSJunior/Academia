@@ -96,14 +96,8 @@
         if (is_null($nomePlanilha) && is_null($usuario)) {
         } else {
 
-            $busca = $banco->query("SELECT * FROM planilha_$usuario WHERE nome_planilha='$nomePlanilha'");
-
-            if ($busca->num_rows == 0) {
-                header("Location: Treinos.php");
-            } else {
-                $_SESSION['nomePlanilha'] = $nomePlanilha;
-                header("Location: treinoPersonalizado.php");
-            }
+            $_SESSION['nomePlanilha'] = $nomePlanilha;
+            header("Location: Treinos.php");
         }
     }
 
