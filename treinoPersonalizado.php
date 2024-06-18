@@ -66,12 +66,12 @@
         <h4>Costas</h4>
          <select name="treino" id="treino" class="form-select form-select-lg mb-3" aria-label="Large select example">
              <option value="exercicio">Exercício</option>
-             <option value="costasop1">supino reto</option>
+             <option value="costasop1">Puxada frontal polia alta</option>
              <option value="costasop2">remada fechada</option>
              <option value="costasop3">puxada neutra</option>
-             <option value="costasop4"></option>
-             <option value="costasop5"></option>
-             <option value="costasop6"></option>
+             <option value="costasop4">Remada unilateral halteres</option>
+             <option value="costasop5">Pulldown polia alta</option>
+             <option value="costasop6">Remada sentada polia baixa</option>
         </select>
         <select name="serie" id="treino" class="form-select form-select-lg mb-3" aria-label="Large select example">
              <option value="series">Séries</option>
@@ -93,28 +93,28 @@
     <div class="treinos">
         <h4>Ombros</h4>
          <select name="treino" id="treino" class="form-select form-select-lg mb-3" aria-label="Large select example">
-             <option value="valor_da_opção1">Exercício</option>
-             <option value="valor_da_opção1">supino reto</option>
-             <option value="valor_da_opção2">remada fechada</option>
-             <option value="valor_da_opção3">puxada neutra</option>
-             <option value="valor_da_opção1"></option>
-             <option value="valor_da_opção2"></option>
-             <option value="valor_da_opção3"></option>
+             <option value="exercicio">Exercício</option>
+             <option value="ombrop1">Elevação lateral halteres</option>
+             <option value="ombrop2">Elevação frontal halteres</option>
+             <option value="ombrop3">Desenvolvimento militar barra</option>
+             <option value="ombrop4">Desenvolvimento Arnold</option>
+             <option value="ombrop5">Elevação posterior de ombros</option>
+             <option value="ombrop6">Remada alta (Upright Row)</option>
         </select>
         <select name="serie" id="treino" class="form-select form-select-lg mb-3" aria-label="Large select example">
-             <option value="valor_da_opção3">Séries</option>
-             <option value="valor_da_opção3">1</option>
-             <option value="valor_da_opção3">2</option>
-             <option value="valor_da_opção3">3</option>
-             <option value="valor_da_opção3">4</option>
-             <option value="valor_da_opção3">5</option>
+             <option value="serie">Séries</option>
+             <option value="ombrop7">1</option>
+             <option value="ombrop8">2</option>
+             <option value="ombrop9">3</option>
+             <option value="ombrop10">4</option>
+             <option value="ombrop11">5</option>
         </select>
         <h6>X</h6>
         <select name="repeticoes" id="treino" class="form-select form-select-lg mb-3" aria-label="Large select example">
-             <option value="valor_da_opção3">Repeticoes</option>
-             <option value="valor_da_opção3">10</option>
-             <option value="valor_da_opção3">12</option>
-             <option value="valor_da_opção3">15</option>
+             <option value="repeticoes">Repeticoes</option>
+             <option value="ombrop12">10</option>
+             <option value="ombrop13">12</option>
+             <option value="ombrop14">15</option> 
         </select>
         <button>Inserir</button>
     </div>
