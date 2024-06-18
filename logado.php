@@ -77,49 +77,50 @@
     <div>
         <h4>Cardio</h4>
          <select name="treino" id="treino" class="form-select form-select-lg mb-3" aria-label="Large select example">
-             <option value="esteira">Esteira</option>
-             <option value="bicicleta">Bicicleta</option>
-             <option value="valor_da_opção3"></option>
-             <option value="valor_da_opção1"></option>
-             <option value="valor_da_opção2"></option>
-             <option value="valor_da_opção3"></option>
+             <option value="exercicio">Exercício</option>
+             <option value="cardiop1">Esteira</option>
+             <option value="cardiop2">Bicicleta</option>
+             <option value="cardiop3"></option>
+             <option value="cardiop4"></option>
+             <option value="cardiop5"></option>
+             <option value="cardiop6"></option>
         </select>
         <select name="serie" id="treino" class="form-select form-select-lg mb-3" aria-label="Large select example">
-             <option value="valor_da_opção3">Tempo</option>
-             <option value="valor_da_opção3">10 min</option>
-             <option value="valor_da_opção3">15 min</option>
-             <option value="valor_da_opção3">20 min</option>
-             <option value="valor_da_opção3">25 min</option>
-             <option value="valor_da_opção3">30 min</option>
+             <option value="cardiop7">Tempo</option>
+             <option value="cardiop8">10 min</option>
+             <option value="cardiop9">15 min</option>
+             <option value="cardiop10">20 min</option>
+             <option value="cardiop11">25 min</option>
+             <option value="cardiop12">30 min</option>
         </select>
         <button>Inserir</button>
     </div>
     <div class="treinos">
     <h4>Peito</h4>
          <select name="peito" id="treino" class="form-select form-select-lg mb-3" aria-label="Large select example">
-             <option value="valor_da_opção1">Exercício</option>
-             <option value="valor_da_opção1">supino reto</option>
-             <option value="valor_da_opção3">Supino inclinado barra</option>
-             <option value="valor_da_opção3">Supino declinado barra</option>
-             <option value="valor_da_opção1">cruxifixo reto</option>
-             <option value="valor_da_opção2">voador</option>
-             <option value="valor_da_opção3">Flexão de braços</option>
+             <option value="exercicio">Exercício</option>
+             <option value="peitop1">supino reto</option>
+             <option value="peitop2">Supino inclinado barra</option>
+             <option value="peitop3">Supino declinado barra</option>
+             <option value="peitop4">cruxifixo reto</option>
+             <option value="peitop5">voador</option>
+             <option value="peitop6">Flexão de braços</option>
         </select>
         
         <select name="serie" id="treino" class="form-select form-select-lg mb-3" aria-label="Large select example">
              <option value="serie">Séries</option>
-             <option value="peitop1">1</option>
-             <option value="peitop2">2</option>
-             <option value="peitop3">3</option>
-             <option value="peitop4">4</option>
-             <option value="peitop5">5</option>
+             <option value="peitop7">1</option>
+             <option value="peitop8">2</option>
+             <option value="peitop9">3</option>
+             <option value="peitop10">4</option>
+             <option value="peitop11">5</option>
         </select>
         <h6>X</h6>
         <select name="repeticoes" id="treino" class="form-select form-select-lg mb-3" aria-label="Large select example">
              <option value="repeticao">Repeticoes</option>
-             <option value="peitop6">10</option>
-             <option value="peitop7">12</option>
-             <option value="peitop8">15</option>
+             <option value="peitop12">10</option>
+             <option value="peitop13">12</option>
+             <option value="peitop14">15</option>
         </select>
         <button>Inserir</button>
     </div>
@@ -130,28 +131,28 @@
     <div class="treinos" >
         <h4>Costas</h4>
          <select name="treino" id="treino" class="form-select form-select-lg mb-3" aria-label="Large select example">
-             <option value="valor_da_opção1">Exercício</option>
-             <option value="valor_da_opção1">supino reto</option>
-             <option value="valor_da_opção2">remada fechada</option>
-             <option value="valor_da_opção3">puxada neutra</option>
-             <option value="valor_da_opção1"></option>
-             <option value="valor_da_opção2"></option>
-             <option value="valor_da_opção3"></option>
+             <option value="exercicio">Exercício</option>
+             <option value="costasop1">supino reto</option>
+             <option value="costasop2">remada fechada</option>
+             <option value="costasop3">puxada neutra</option>
+             <option value="costasop4"></option>
+             <option value="costasop5"></option>
+             <option value="costasop6"></option>
         </select>
         <select name="serie" id="treino" class="form-select form-select-lg mb-3" aria-label="Large select example">
-             <option value="valor_da_opção3">Séries</option>
-             <option value="valor_da_opção3">1</option>
-             <option value="valor_da_opção3">2</option>
-             <option value="valor_da_opção3">3</option>
-             <option value="valor_da_opção3">4</option>
-             <option value="valor_da_opção3">5</option>
+             <option value="series">Séries</option>
+             <option value="costasop6">1</option>
+             <option value="costasop7">2</option>
+             <option value="costasop8">3</option>
+             <option value="costasop9">4</option>
+             <option value="costasop10">5</option>
         </select>
         <h6>X</h6>
         <select name="repeticoes" id="treino" class="form-select form-select-lg mb-3" aria-label="Large select example">
-             <option value="valor_da_opção3">Repeticoes</option>
-             <option value="valor_da_opção3">10</option>
-             <option value="valor_da_opção3">12</option>
-             <option value="valor_da_opção3">15</option>
+             <option value="repeticoes">Repeticoes</option>
+             <option value="costasop11">10</option>
+             <option value="costasop12">12</option>
+             <option value="costasop13">15</option>
         </select>
         <button>Inserir</button>
     </div>
