@@ -26,60 +26,41 @@
     </header>
 
     <?php
-session_start();
-require_once "banco.php";
+    session_start();
+    require_once "banco.php";
 
-$usu = $_SESSION['usuario'];
-$nomePlanilha = $_SESSION['nomePlanilha'] ?? null;
+    $usu = $_SESSION['usuario'];
+    $nomePlanilha = $_SESSION['nomePlanilha'] ?? null;
 
-if ($nomePlanilha == null) {
-    die("Nome da planilha não fornecido");
-}
+    if ($nomePlanilha == null) {
+        die("Nome da planilha não fornecido");
+    }
 
-try {
-    // Escapa o nome da tabela para evitar injeção de SQL
-    $tabela = "planilha_" . $banco->real_escape_string($usu);
-    
-    // Tenta selecionar dados da tabela do usuário
-    $busca = $banco->query("SELECT * FROM $tabela");
+    try {
+        // Escapa o nome da tabela para evitar injeção de SQL
+        $tabela = "planilha_" . $banco->real_escape_string($usu);
 
-    // Se a tabela não existe, cria uma nova tabela
-    if ($busca === false) {
-        $criaTabela = "CREATE TABLE IF NOT EXISTS $tabela (
+        // Tenta selecionar dados da tabela do usuário
+        $busca = $banco->query("SELECT * FROM $tabela");
+
+        // Se a tabela não existe, cria uma nova tabela
+        if ($busca === false) {
+            $criaTabela = "CREATE TABLE IF NOT EXISTS $tabela (
             cod INT NOT NULL AUTO_INCREMENT,
             nome_planilha VARCHAR(255) NOT NULL,
             PRIMARY KEY (cod)
         )";
 
-        if ($banco->query($criaTabela)) {
-            echo "Tabela criada com sucesso.";
-        } else {
-            throw new Exception("Erro ao criar a tabela: " . $banco->error);
+            if ($banco->query($criaTabela)) {
+                echo "Tabela criada com sucesso.";
+            } else {
+                throw new Exception("Erro ao criar a tabela: " . $banco->error);
+            }
         }
-    }
 
-    // Verifica se a planilha já existe na tabela do usuário
-    $busca = $banco->query("SELECT * FROM $tabela WHERE nome_planilha = '$nomePlanilha'");
-    if ($busca->num_rows == 0) {
-        $inserePlanilha = "INSERT INTO $tabela (nome_planilha) VALUES ('$nomePlanilha')";
-        if ($banco->query($inserePlanilha)) {
-            echo "Planilha '$nomePlanilha' inserida com sucesso.";
-        } else {
-            throw new Exception("Erro ao inserir a planilha: " . $banco->error);
-        }
-    } else {
-        echo "A planilha '$nomePlanilha' já existe.";
-    }
-
-} catch (mysqli_sql_exception $e) {
-    if ($e->getCode() == 1146) { // Código de erro para tabela não encontrada
-        $criaTabela = "CREATE TABLE IF NOT EXISTS $tabela (
-            cod INT NOT NULL AUTO_INCREMENT,
-            nome_planilha VARCHAR(255) NOT NULL,
-            PRIMARY KEY (cod)
-        )";
-        if ($banco->query($criaTabela)) {
-            echo "Tabela criada com sucesso.";
+        // Verifica se a planilha já existe na tabela do usuário
+        $busca = $banco->query("SELECT * FROM $tabela WHERE nome_planilha = '$nomePlanilha'");
+        if ($busca->num_rows == 0) {
             $inserePlanilha = "INSERT INTO $tabela (nome_planilha) VALUES ('$nomePlanilha')";
             if ($banco->query($inserePlanilha)) {
                 echo "Planilha '$nomePlanilha' inserida com sucesso.";
@@ -87,15 +68,33 @@ try {
                 throw new Exception("Erro ao inserir a planilha: " . $banco->error);
             }
         } else {
-            throw new Exception("Erro ao criar a tabela: " . $banco->error);
+            echo "A planilha '$nomePlanilha' já existe.";
         }
-    } else {
+    } catch (mysqli_sql_exception $e) {
+        if ($e->getCode() == 1146) { // Código de erro para tabela não encontrada
+            $criaTabela = "CREATE TABLE IF NOT EXISTS $tabela (
+            cod INT NOT NULL AUTO_INCREMENT,
+            nome_planilha VARCHAR(255) NOT NULL,
+            PRIMARY KEY (cod)
+        )";
+            if ($banco->query($criaTabela)) {
+                echo "Tabela criada com sucesso.";
+                $inserePlanilha = "INSERT INTO $tabela (nome_planilha) VALUES ('$nomePlanilha')";
+                if ($banco->query($inserePlanilha)) {
+                    echo "Planilha '$nomePlanilha' inserida com sucesso.";
+                } else {
+                    throw new Exception("Erro ao inserir a planilha: " . $banco->error);
+                }
+            } else {
+                throw new Exception("Erro ao criar a tabela: " . $banco->error);
+            }
+        } else {
+            echo "Erro: " . $e->getMessage();
+        }
+    } catch (Exception $e) {
         echo "Erro: " . $e->getMessage();
     }
-} catch (Exception $e) {
-    echo "Erro: " . $e->getMessage();
-}
-?>
+    ?>
 
     <div class="container-sm d-flex flex-column justify-content-center mt-5">
         <div class="container divExercicio rounded shadow">
@@ -126,64 +125,64 @@ try {
     </div>
 
     <?php
-$nomeExercicio = $_POST['nomeExercicio'] ?? null;
-$peso = $_POST['peso'] ?? null;
-$series = $_POST['series'] ?? null;
-$repeticoes = $_POST['repeticoes'] ?? null;
+    $nomeExercicio = $_POST['nomeExercicio'] ?? null;
+    $peso = $_POST['peso'] ?? null;
+    $series = $_POST['series'] ?? null;
+    $repeticoes = $_POST['repeticoes'] ?? null;
 
-if (is_null($nomeExercicio) || is_null($peso) || is_null($series) || is_null($repeticoes)) {
-    echo "Todos os campos são obrigatórios.";
-} else {
-    try {
-        // Tabela do usuário
-        $tabela = "planilha_" . $banco->real_escape_string($usu);
+    if (is_null($nomeExercicio) || is_null($peso) || is_null($series) || is_null($repeticoes)) {
+        echo "Todos os campos são obrigatórios.";
+    } else {
+        try {
+            // Tabela do usuário
+            $tabela = "planilha_" . $banco->real_escape_string($usu);
 
-        // Verificar se o exercício já existe
-        $stmt = $banco->prepare("SELECT cod FROM exercicios WHERE nome = ? AND peso = ? AND series = ? AND repeticoes = ?");
-        $stmt->bind_param("siii", $nomeExercicio, $peso, $series, $repeticoes);
-        $stmt->execute();
-        $result = $stmt->get_result();
-
-        if ($result->num_rows == 0) {
-            // Inserir exercício na tabela 'exercicios' se não existir
-            $stmt = $banco->prepare("INSERT INTO exercicios (nome, peso, series, repeticoes) VALUES (?, ?, ?, ?)");
+            // Verificar se o exercício já existe
+            $stmt = $banco->prepare("SELECT cod FROM exercicios WHERE nome = ? AND peso = ? AND series = ? AND repeticoes = ?");
             $stmt->bind_param("siii", $nomeExercicio, $peso, $series, $repeticoes);
             $stmt->execute();
-            $codExercicio = $stmt->insert_id; // Obtém o ID do exercício inserido
-        } else {
-            $row = $result->fetch_assoc();
-            $codExercicio = $row['cod'];
-        }
+            $result = $stmt->get_result();
 
-        // Adicionar exercício na planilha do usuário
-        for ($i = 0; $i < 10; $i++) {
-            $colunaExercicio = "exercicio$i";
-
-            // Verificar se a coluna já existe
-            $result = $banco->query("SHOW COLUMNS FROM $tabela LIKE '$colunaExercicio'");
             if ($result->num_rows == 0) {
-                // Adicionar coluna e chave estrangeira se não existir
-                $banco->query("ALTER TABLE $tabela ADD $colunaExercicio INT");
-                $banco->query("ALTER TABLE $tabela ADD FOREIGN KEY ($colunaExercicio) REFERENCES exercicios(cod)");
+                // Inserir exercício na tabela 'exercicios' se não existir
+                $stmt = $banco->prepare("INSERT INTO exercicios (nome, peso, series, repeticoes) VALUES (?, ?, ?, ?)");
+                $stmt->bind_param("siii", $nomeExercicio, $peso, $series, $repeticoes);
+                $stmt->execute();
+                $codExercicio = $stmt->insert_id; // Obtém o ID do exercício inserido
+            } else {
+                $row = $result->fetch_assoc();
+                $codExercicio = $row['cod'];
             }
 
-            // Inserir o exercício na coluna correspondente
-            $busca = $banco->query("SELECT * FROM $tabela WHERE $colunaExercicio IS NULL AND nome_planilha = '$nomePlanilha'");
-            if ($busca->num_rows > 0) {
-                $banco->query("UPDATE $tabela SET $colunaExercicio = $codExercicio WHERE $colunaExercicio IS NULL AND nome_planilha = '$nomePlanilha' LIMIT 1");
-                echo "<script>alert('Exercício adicionado com sucesso!');</script>";
-                return;
+            // Adicionar exercício na planilha do usuário
+            for ($i = 0; $i < 10; $i++) {
+                $colunaExercicio = "exercicio$i";
+
+                // Verificar se a coluna já existe
+                $result = $banco->query("SHOW COLUMNS FROM $tabela LIKE '$colunaExercicio'");
+                if ($result->num_rows == 0) {
+                    // Adicionar coluna e chave estrangeira se não existir
+                    $banco->query("ALTER TABLE $tabela ADD $colunaExercicio INT");
+                    $banco->query("ALTER TABLE $tabela ADD FOREIGN KEY ($colunaExercicio) REFERENCES exercicios(cod)");
+                }
+
+                // Inserir o exercício na coluna correspondente
+                $busca = $banco->query("SELECT * FROM $tabela WHERE $colunaExercicio IS NULL AND nome_planilha = '$nomePlanilha'");
+                if ($busca->num_rows > 0) {
+                    $banco->query("UPDATE $tabela SET $colunaExercicio = $codExercicio WHERE $colunaExercicio IS NULL AND nome_planilha = '$nomePlanilha' LIMIT 1");
+                    echo "<script>alert('Exercício adicionado com sucesso!');</script>";
+                    return;
+                }
             }
+
+            echo "<script>alert('Não foi possível adicionar o exercício.');</script>";
+        } catch (mysqli_sql_exception $e) {
+            echo "Erro de SQL: " . $e->getMessage();
+        } catch (Exception $e) {
+            echo "Erro: " . $e->getMessage();
         }
-
-        echo "<script>alert('Não foi possível adicionar o exercício.');</script>";
-    } catch (mysqli_sql_exception $e) {
-        echo "Erro de SQL: " . $e->getMessage();
-    } catch (Exception $e) {
-        echo "Erro: " . $e->getMessage();
     }
-}
-?>
+    ?>
 
 </body>
 
