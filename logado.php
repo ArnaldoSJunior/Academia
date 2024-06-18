@@ -52,7 +52,7 @@
 
     <section class="container mt-5">
         <h2 class="text-center">Treinos Criados</h2>
-        <form method="post" >
+        <form method="post">
             <div class="form-group">
                 <label for="treinos">Selecione um Treino</label>
                 <select class="form-control" id="treinos" name="treinos">
@@ -92,20 +92,21 @@
     $nomePlanilha = $_POST['treinos'] ?? null;
     $usuario = $_SESSION['usuario'] ?? null;
 
-
-    if (is_null($nomePlanilha) && is_null($usuario)) {
-    } else {
-
-        $busca = $banco->query("SELECT * FROM planilha_$usuario WHERE nome_planilha='$nomePlanilha'");
-
-        if ($busca->num_rows == 0) {
-
+    if (isset($_POST['selecionar'])) {
+        if (is_null($nomePlanilha) && is_null($usuario)) {
         } else {
-            $_SESSION['nomePlanilha'] = $nomePlanilha;
-            header("Location: treinoPersonalizado.php");
-            
+
+            $busca = $banco->query("SELECT * FROM planilha_$usuario WHERE nome_planilha='$nomePlanilha'");
+
+            if ($busca->num_rows == 0) {
+                header("Location: Treinos.php");
+            } else {
+                $_SESSION['nomePlanilha'] = $nomePlanilha;
+                header("Location: treinoPersonalizado.php");
+            }
         }
     }
+
     ?>
 
     <section id="pegar" class="container mt-5">
