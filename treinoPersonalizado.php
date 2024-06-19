@@ -66,6 +66,65 @@
           die("Nome da planilha não fornecido");
      }
 
+     try {
+          // Escapa o nome da tabela para evitar injeção de SQL
+          $tabela = "planilha_" . $banco->real_escape_string($usu);
+  
+          // Tenta selecionar dados da tabela do usuário
+          $busca = $banco->query("SELECT * FROM $tabela");
+  
+          // Se a tabela não existe, cria uma nova tabela
+          if ($busca === false) {
+              $criaTabela = "CREATE TABLE IF NOT EXISTS $tabela (
+              cod INT NOT NULL AUTO_INCREMENT,
+              nome_planilha VARCHAR(255) NOT NULL,
+              PRIMARY KEY (cod)
+          )";
+  
+              if ($banco->query($criaTabela)) {
+                  echo "Tabela criada com sucesso.";
+              } else {
+                  throw new Exception("Erro ao criar a tabela: " . $banco->error);
+              }
+          }
+  
+          // Verifica se a planilha já existe na tabela do usuário
+          $busca = $banco->query("SELECT * FROM $tabela WHERE nome_planilha = '$nomePlanilha'");
+          if ($busca->num_rows == 0) {
+              $inserePlanilha = "INSERT INTO $tabela (nome_planilha) VALUES ('$nomePlanilha')";
+              if ($banco->query($inserePlanilha)) {
+                  echo "Planilha '$nomePlanilha' inserida com sucesso.";
+              } else {
+                  throw new Exception("Erro ao inserir a planilha: " . $banco->error);
+              }
+          } else {
+              echo "A planilha '$nomePlanilha' já existe.";
+          }
+      } catch (mysqli_sql_exception $e) {
+          if ($e->getCode() == 1146) { // Código de erro para tabela não encontrada
+              $criaTabela = "CREATE TABLE IF NOT EXISTS $tabela (
+              cod INT NOT NULL AUTO_INCREMENT,
+              nome_planilha VARCHAR(255) NOT NULL,
+              PRIMARY KEY (cod)
+          )";
+              if ($banco->query($criaTabela)) {
+                  echo "Tabela criada com sucesso.";
+                  $inserePlanilha = "INSERT INTO $tabela (nome_planilha) VALUES ('$nomePlanilha')";
+                  if ($banco->query($inserePlanilha)) {
+                      echo "Planilha '$nomePlanilha' inserida com sucesso.";
+                  } else {
+                      throw new Exception("Erro ao inserir a planilha: " . $banco->error);
+                  }
+              } else {
+                  throw new Exception("Erro ao criar a tabela: " . $banco->error);
+              }
+          } else {
+              echo "Erro: " . $e->getMessage();
+          }
+      } catch (Exception $e) {
+          echo "Erro: " . $e->getMessage();
+      }
+
      ?>
 
      <div class="container my-5">
