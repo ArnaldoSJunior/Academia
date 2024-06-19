@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 18/06/2024 às 22:20
+-- Tempo de geração: 19/06/2024 às 03:40
 -- Versão do servidor: 10.4.32-MariaDB
 -- Versão do PHP: 8.2.12
 
@@ -20,6 +20,20 @@ SET time_zone = "+00:00";
 --
 -- Banco de dados: `bd_academia`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura para tabela `exercicios`
+--
+
+CREATE TABLE `exercicios` (
+  `cod` int(11) NOT NULL,
+  `nome` varchar(30) NOT NULL,
+  `peso` int(10) NOT NULL,
+  `series` int(10) NOT NULL,
+  `repeticoes` int(10) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -56,9 +70,31 @@ INSERT INTO `planilha_pronta_a` (`cod`, `nome_treino`, `nome_exercicio`, `peso`,
 (13, 'Treino C', 'Remada Curvada', 14, 3, 12),
 (14, 'Treino C', 'Rosca Scott Halter', 12, 3, 12);
 
+-- --------------------------------------------------------
+
+--
+-- Estrutura para tabela `usuarios`
+--
+
+CREATE TABLE `usuarios` (
+  `cod` int(11) NOT NULL,
+  `nome` varchar(30) NOT NULL,
+  `sobrenome` varchar(30) NOT NULL,
+  `email` varchar(40) NOT NULL,
+  `telefone` varchar(20) NOT NULL,
+  `usuario` varchar(40) NOT NULL,
+  `senha` varchar(20) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
 --
 -- Índices para tabelas despejadas
 --
+
+--
+-- Índices de tabela `exercicios`
+--
+ALTER TABLE `exercicios`
+  ADD PRIMARY KEY (`cod`);
 
 --
 -- Índices de tabela `planilha_pronta_a`
@@ -67,14 +103,32 @@ ALTER TABLE `planilha_pronta_a`
   ADD PRIMARY KEY (`cod`);
 
 --
+-- Índices de tabela `usuarios`
+--
+ALTER TABLE `usuarios`
+  ADD PRIMARY KEY (`cod`);
+
+--
 -- AUTO_INCREMENT para tabelas despejadas
 --
+
+--
+-- AUTO_INCREMENT de tabela `exercicios`
+--
+ALTER TABLE `exercicios`
+  MODIFY `cod` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=37;
 
 --
 -- AUTO_INCREMENT de tabela `planilha_pronta_a`
 --
 ALTER TABLE `planilha_pronta_a`
   MODIFY `cod` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+
+--
+-- AUTO_INCREMENT de tabela `usuarios`
+--
+ALTER TABLE `usuarios`
+  MODIFY `cod` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

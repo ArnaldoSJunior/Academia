@@ -395,7 +395,6 @@
 
                     $stmt = ("SELECT * FROM exercicios WHERE nome = '$nomeExercicio' AND peso = '$peso' AND series = '$series' AND repeticoes = '$repeticoes'");
                     $resp = $banco->query($stmt);
-                    echo "<script>alert('Não foi possível adicionar o exercício.');</script>";
                     if ($resp->num_rows == 0) {
 
                          // Inserir exercício na tabela 'exercicios' se não existir
