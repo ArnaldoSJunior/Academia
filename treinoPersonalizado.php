@@ -71,29 +71,7 @@
      <div class="container my-5">
           <h1>Treino: <?= $nomePlanilha ?></h1>
           <div class="row">
-               <div class="col-md-4">
-                    <div class="treinos">
-                         <h4>Cardio</h4>
-                         <form method="POST" action="">
-                              <select name="exercicio" id="treino" class="form-select form-select-lg mb-5 p-1 pb-2" aria-label="Large select example">
-                                   <option value="Esteira">Esteira</option>
-                                   <option value="Bike">Bike</option>
-                                   <option value="Elíptico">Elíptico</option>
-                                   <option value="Máquina de Remo">Máquina de Remo</option>
-                                   <option value="Cross Trainer">Cross Trainer</option>
-                                   <option value="Stair Climber">Stair Climber</option>
-                              </select><br>
-                              <select name="tempo" id="treino" class="form-select form-select-lg mb-4 p-1 pb-2" aria-label="Large select example">
-                                   <option value="10">10 min</option>
-                                   <option value="15">15 min</option>
-                                   <option value="20">20 min</option>
-                                   <option value="25">25 min</option>
-                                   <option value="30">30 min</option>
-                              </select><br>
-                              <button type="submit" class="btn btn-primary" name="adicionar">Adicionar</button>
-                         </form>
-                    </div>
-               </div>
+               
                <div class="col-md-4">
                     <div class="treinos">
                          <h4>Peito</h4>
