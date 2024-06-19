@@ -18,10 +18,10 @@
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item">
-                    <a class="btn btn-outline-light mx-1" href="mostrarPlanilhas.php  ">Mostrar Treinos</a>
+                    <a class="btn btn-outline-light mx-1" href="mostrarPlanilhas.php  ">Mostrar Planilhas</a>
                 </li>
                 <li class="nav-item">
-                    <a class="btn btn-outline-light mx-1" href="#criar">Criar Treino</a>
+                    <a class="btn btn-outline-light mx-1" href="#criar">Criar Planilha</a>
                 </li>
                 <li class="nav-item">
                     <a class="btn btn-outline-light mx-1" href="meus_treinos_prontos.php">Meus Treinos Prontos</a>
@@ -109,7 +109,7 @@
                     <div class="card-body">
                         <h5 class="card-title">Treino A</h5>
                         <p class="card-text">Treino de peito e tríceps.</p>
-                        <a href="meus_treinos_prontos.php?treino=A" class="btn btn-primary">Visualizar</a>
+                        <a href="meus_treinos_prontos.php?treino=Treino A" class="btn btn-primary">Visualizar</a>
                     </div>
                 </div>
             </div>
@@ -118,7 +118,7 @@
                     <div class="card-body">
                         <h5 class="card-title">Treino B</h5>
                         <p class="card-text">Treino de inferiores.</p>
-                        <a href="meus_treinos_prontos.php?treino=B" class="btn btn-primary">Visualizar</a>
+                        <a href="meus_treinos_prontos.php?treino=Treino B" class="btn btn-primary">Visualizar</a>
                     </div>
                 </div>
             </div>
@@ -127,7 +127,7 @@
                     <div class="card-body">
                         <h5 class="card-title">Treino C</h5>
                         <p class="card-text">Treino de costas.</p>
-                        <a href="meus_treinos_prontos.php?treino=C" class="btn btn-primary">Visualizar</a>
+                        <a href="meus_treinos_prontos.php?treino=Treino C" class="btn btn-primary">Visualizar</a>
                     </div>
                 </div>
             </div>
