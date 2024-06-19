@@ -28,8 +28,8 @@
   </header>
   <main>
     <section class="hero">
-      <div class="overlay"></div>
-      <div class="container">
+      <div class="overlay" ></div>
+      <div class="container" style= "background-image: url(image/op1.png)">
         <h2>Transforme seu corpo, transforme sua vida</h2>
         <p>Junte-se a nós para alcançar seus objetivos fitness.</p>
         <a href="#" class="btn">Saiba Mais</a>

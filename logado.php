@@ -18,10 +18,10 @@
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item">
-                    <a class="btn btn-outline-light mx-1" href="mostrarPlanilhas.php  ">Mostrar Planilhas</a>
+                    <a class="btn btn-outline-light mx-1" href="mostrarPlanilhas.php  ">Mostrar Treinos</a>
                 </li>
                 <li class="nav-item">
-                    <a class="btn btn-outline-light mx-1" href="#criar">Criar Planilha</a>
+                    <a class="btn btn-outline-light mx-1" href="#criar">Criar Treino</a>
                 </li>
                 <li class="nav-item">
                     <a class="btn btn-outline-light mx-1" href="meus_treinos_prontos.php">Meus Treinos Prontos</a>
