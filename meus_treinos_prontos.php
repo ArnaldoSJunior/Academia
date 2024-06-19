@@ -34,7 +34,7 @@
         {
             $consulta = "SELECT * FROM planilha_pronta_$nomeTreino WHERE nome_treino = ?";
             $stmt = $banco->prepare($consulta);
-            //$stmt->bind_param("s", $nomeTreino);
+            $stmt->bind_param("s", $nomeTreino);
             $stmt->execute();
             $resultado = $stmt->get_result();
 

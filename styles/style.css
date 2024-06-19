@@ -46,7 +46,7 @@ nav a {
 
 .hero {
     position: relative;
-    background-image: url(images/op1.png);
+    background-image: url(op1.png);
     background-size: cover;
     background-position: center bottom;
     background-attachment: fixed;
